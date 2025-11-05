@@ -37,7 +37,6 @@ const App: React.FC = () => {
     fixed top-0 left-0 w-full h-full bg-cover bg-center transition-transform duration-300 ease-in-out
     ${isArticleVisible ? 'scale-105 blur-sm' : 'scale-110 blur-0'}
   `;
-  const preloadClasses = isPreloading ? 'opacity-0' : 'opacity-100';
 
   return (
     <div className={`min-h-screen text-white font-light leading-relaxed ${isPreloading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
