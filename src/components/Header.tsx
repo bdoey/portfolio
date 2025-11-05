@@ -27,11 +27,11 @@ const Header: React.FC = () => {
   return (
     <header className="flex flex-col items-center text-center max-w-full bg-radial-gradient p-4">
       <div className="mb-8">
-        <div className="w-32 h-32 rounded-full overflow-hidden border border-white">
-          <img src="https://picsum.photos/seed/avatar/200" alt="Brandon Doey" className="w-full h-full object-cover" />
+        <div className="w-32 h-32 rounded-full overflow-hidden border border-white/10">
+          <img src="https://raw.githubusercontent.com/bdoey/bdoey.github.io/refs/heads/main/images/bdoey.jpeg" alt="Brandon Doey" className="w-full h-full object-cover" />
         </div>
       </div>
-      <div className="w-full border-t border-b border-white py-8 px-4">
+      <div className="w-full bg-black/70 backdrop-blur-sm rounded-lg shadow-xl py-8 px-4 border border-white/10">
         <h1 className="text-3xl sm:text-4xl font-semibold uppercase tracking-[0.5rem] leading-tight">
           <a href="#contact">Brandon Doey</a>
         </h1>
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
         </ul>
       </div>
       <nav className="mt-8">
-        <ul className="flex border border-white rounded-md overflow-hidden">
+        <ul className="flex bg-black/70 backdrop-blur-sm border border-white/10 rounded-md overflow-hidden">
           <NavLink href="#resume">Resume</NavLink>
           <NavLink href="#publications">Publications</NavLink>
           <NavLink href="#projects">Projects</NavLink>
