@@ -81,21 +81,21 @@ export const PROJECTS: Project[] = [
     {
         category: 'Generative AI',
         title: 'AI Enabled Financial Literacy Q&A System',
-        image: 'https://picsum.photos/seed/ai1/600/400',
+        image: 'https://github.com/bdoey/bdoey.github.io/blob/main/images/ai1.png?raw=true',
         description: 'Leveraging Retrieval Augmented Generation and local LLMs to combat financial illiteracy with a private and secure Q&A system.',
         link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Financial_Literacy_Local_LLM.ipynb'
     },
     {
         category: 'Generative AI',
         title: 'LLM Powered Data Anomaly Detection App',
-        image: 'https://picsum.photos/seed/ai2/600/400',
+        image: 'https://github.com/bdoey/bdoey.github.io/blob/main/images/ai2.png?raw=true',
         description: 'Identifies anomalies in datasets using Python for analysis and a local LLM for narrative explanations.',
         link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Llama3_Powered_Anomaly_Detection.ipynb'
     },
     {
         category: 'Generative AI',
         title: 'AI Research Summarizer with LLM Feedback',
-        image: 'https://picsum.photos/seed/ai3/600/400',
+        image: 'https://github.com/bdoey/bdoey.github.io/blob/main/images/ai3.png?raw=true',
         description: 'Fetches recent AI research papers from arXiv and provides concise summaries with insightful feedback from a local LLM.',
         link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Research_Summarizer_LLM_Feedback.ipynb'
     },
