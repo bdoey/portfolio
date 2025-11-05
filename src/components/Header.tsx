@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     <header className="flex flex-col items-center text-center max-w-full bg-radial-gradient p-4">
       <div className="mb-8">
         <div className="w-32 h-32 rounded-full overflow-hidden border border-white/10">
-          <img src="https://raw.githubusercontent.com/bdoey/bdoey.github.io/refs/heads/main/images/bdoey.jpeg" alt="Brandon Doey" className="w-full h-full object-cover" />
+          <img src="https://raw.githubusercontent.com/bdoey/portfolio/refs/heads/main/bdoey2.jpeg" alt="Brandon Doey" className="w-full h-full object-cover" />
         </div>
       </div>
       <div className="w-full bg-black/70 backdrop-blur-sm rounded-lg shadow-xl py-8 px-4 border border-white/10">
