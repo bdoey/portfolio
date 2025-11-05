@@ -29,6 +29,7 @@ export interface Project {
   image: string;
   description: string;
   link: string;
+  techStack?: string[];
 }
 
 export interface Publication {

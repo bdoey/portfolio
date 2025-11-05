@@ -83,84 +83,96 @@ export const PROJECTS: Project[] = [
         title: 'AI Enabled Financial Literacy Q&A System',
         image: 'https://picsum.photos/seed/ai1/600/400',
         description: 'Leveraging Retrieval Augmented Generation and local LLMs to combat financial illiteracy with a private and secure Q&A system.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Financial_Literacy_Local_LLM.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Financial_Literacy_Local_LLM.ipynb',
+        techStack: ['Python', 'RAG', 'LLM', 'Chroma']
     },
     {
         category: 'Generative AI',
         title: 'LLM Powered Data Anomaly Detection App',
         image: 'https://picsum.photos/seed/ai2/600/400',
         description: 'Identifies anomalies in datasets using Python for analysis and a local LLM for narrative explanations.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Llama3_Powered_Anomaly_Detection.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Llama3_Powered_Anomaly_Detection.ipynb',
+        techStack: ['Python', 'Llama3', 'Pandas']
     },
     {
         category: 'Generative AI',
         title: 'AI Research Summarizer with LLM Feedback',
         image: 'https://picsum.photos/seed/ai3/600/400',
         description: 'Fetches recent AI research papers from arXiv and provides concise summaries with insightful feedback from a local LLM.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Research_Summarizer_LLM_Feedback.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/AI_Research_Summarizer_LLM_Feedback.ipynb',
+        techStack: ['Python', 'arXiv API', 'LLM', 'NLP']
     },
     {
         category: 'FinTech Apps',
         title: 'BNPL Credit Worthiness App',
         image: 'https://picsum.photos/seed/ft1/600/400',
         description: 'Uses a Keras Sequential model for deep learning-based creditworthiness analysis of potential borrowers.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_BNPL_CAP5619_Final.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_BNPL_CAP5619_Final.ipynb',
+        techStack: ['Python', 'Keras', 'TensorFlow', 'Deep Learning']
     },
     {
         category: 'FinTech Apps',
         title: 'DJIA Analysis using NLP and MACD',
         image: 'https://picsum.photos/seed/ft2/600/400',
         description: 'Combines natural language processing of financial news with quantitative trading algorithms to generate actionable insights.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_DJIA_Analysis_using_NLP_MACD.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_DJIA_Analysis_using_NLP_MACD.ipynb',
+        techStack: ['Python', 'NLP', 'MACD', 'Trading']
     },
     {
         category: 'FinTech Apps',
         title: 'Trading Agent using Q-Learning',
         image: 'https://picsum.photos/seed/ft3/600/400',
         description: 'Develops a reinforcement learning agent that learns optimal trading strategies from historical market data.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_Trading_Agent_using_Q-learning.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_Trading_Agent_using_Q-learning.ipynb',
+        techStack: ['Python', 'Q-Learning', 'RL', 'Trading']
     },
     {
         category: 'Data Science',
         title: 'Stock Market Prediction using LSTM',
         image: 'https://picsum.photos/seed/ds1/600/400',
         description: 'Utilizes Long Short-Term Memory (LSTM) networks for time-series prediction of stock market movements.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_Stock_Prediction_using_LSTM.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/FT_Stock_Prediction_using_LSTM.ipynb',
+        techStack: ['Python', 'LSTM', 'Keras', 'Time Series']
     },
     {
         category: 'Data Science',
         title: 'Churn Prediction using RF Classifier',
         image: 'https://picsum.photos/seed/ds2/600/400',
         description: 'Predicts customer churn for a telecom company and informs targeted retention strategies through customer segmentation.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/DS_Churn_Prediction_using_Classifier.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/DS_Churn_Prediction_using_Classifier.ipynb',
+        techStack: ['Python', 'Random Forest', 'Scikit-learn']
     },
     {
         category: 'Data Science',
         title: 'Bankruptcy Prediction using Ensemble ML',
         image: 'https://picsum.photos/seed/ds3/600/400',
         description: 'Performs an ensemble machine learning approach to predict bankruptcy, including EDA and handling class imbalance.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/DS_Bankruptcy_Prediction_using_Ensemble.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/DS_Bankruptcy_Prediction_using_Ensemble.ipynb',
+        techStack: ['Python', 'Ensemble ML', 'XGBoost']
     },
     {
         category: 'Machine Learning',
         title: 'Customer Segmentation using Clustering',
         image: 'https://picsum.photos/seed/ml1/600/400',
         description: 'Aims to better understand customer behavior to assess risk profiles and inform risk mitigation strategies.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Customer_Segmentation_using_Clustering.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Customer_Segmentation_using_Clustering.ipynb',
+        techStack: ['Python', 'K-Means', 'Clustering']
     },
     {
         category: 'Machine Learning',
         title: 'Dropout Prediction using FF Neural Network',
         image: 'https://picsum.photos/seed/ml2/600/400',
         description: 'Applies a Keras-based Feed-Forward Neural Network to predict the likelihood of college student dropouts.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Dropout_Prediction_using_FFNN.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Dropout_Prediction_using_FFNN.ipynb',
+        techStack: ['Python', 'Keras', 'Neural Network']
     },
     {
         category: 'Machine Learning',
         title: 'Sentiment Analysis using LDA',
         image: 'https://picsum.photos/seed/ml3/600/400',
         description: 'Uses Latent Dirichlet Allocation (LDA) for topic modeling and weighted sentiment analysis on news articles.',
-        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Sentiment_Analysis_using_LDA.ipynb'
+        link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Sentiment_Analysis_using_LDA.ipynb',
+        techStack: ['Python', 'LDA', 'NLP', 'Topic Modeling']
     }
 ];
 

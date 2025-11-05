@@ -1,51 +1,135 @@
 
 import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-    <div className="bg-white/5 rounded-lg overflow-hidden transition-transform hover:scale-105 duration-300">
-        <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <img src={project.image} alt={project.title} className="w-full h-40 object-cover" />
-            <div className="p-4">
-                <h4 className="font-bold text-md text-sky-300">{project.title}</h4>
-                <p className="text-sm text-white/80 mt-2">{project.description}</p>
-            </div>
-        </a>
-    </div>
-);
+const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="group relative glass glass-hover rounded-lg overflow-hidden border"
+        >
+            <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+            >
+                <div className="relative overflow-hidden">
+                    <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
+                    {/* Hover overlay with icon */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-sky-500/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                            <i className="fas fa-external-link-alt text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="p-5">
+                    <h4 className="font-bold text-lg text-gradient mb-2 group-hover:text-sky-300 transition-colors">
+                        {project.title}
+                    </h4>
+                    <p className="text-sm text-white/80 leading-relaxed mb-3">
+                        {project.description}
+                    </p>
+
+                    {/* Tech Stack Badges */}
+                    {project.techStack && project.techStack.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-3">
+                            {project.techStack.map((tech, i) => (
+                                <motion.span
+                                    key={tech}
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                                    transition={{ duration: 0.3, delay: index * 0.1 + i * 0.05 }}
+                                    className="px-2 py-1 text-xs bg-sky-500/20 text-sky-300 rounded border border-sky-500/30 hover:bg-sky-500/30 transition-colors"
+                                >
+                                    {tech}
+                                </motion.span>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </a>
+        </motion.div>
+    );
+};
 
 const Projects: React.FC = () => {
     const categories = useMemo(() => Array.from(new Set(PROJECTS.map(p => p.category))), []);
     const [activeCategory, setActiveCategory] = useState(categories[0]);
 
     const filteredProjects = PROJECTS.filter(p => p.category === activeCategory);
-    
+
     return (
         <div>
-            <h2 className="major text-2xl font-semibold uppercase tracking-[0.5rem] border-b border-white pb-2 mb-6">Projects</h2>
-            
-            <div className="mb-6 flex flex-wrap gap-2">
-                {categories.map(category => (
-                    <button
+            <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-2xl font-semibold uppercase tracking-[0.5rem] border-b border-white/20 pb-2 mb-6 text-gradient"
+            >
+                Projects
+            </motion.h2>
+
+            {/* Category Filter Buttons */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mb-8 flex flex-wrap gap-3"
+            >
+                {categories.map((category, index) => (
+                    <motion.button
                         key={category}
                         onClick={() => setActiveCategory(category)}
-                        className={`px-4 py-2 text-sm rounded-md transition-colors ${
-                            activeCategory === category 
-                                ? 'bg-sky-500 text-white font-semibold' 
-                                : 'bg-white/10 hover:bg-white/20'
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`px-4 py-2 text-sm rounded-lg transition-all duration-300 font-medium ${
+                            activeCategory === category
+                                ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/50'
+                                : 'glass glass-hover text-white/80 hover:text-white'
                         }`}
                     >
                         {category}
-                    </button>
+                    </motion.button>
                 ))}
-            </div>
-            
-            <div className="flex flex-col gap-6">
-                {filteredProjects.map(project => (
-                    <ProjectCard key={project.title} project={project} />
-                ))}
-            </div>
+            </motion.div>
+
+            {/* Projects Grid */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeCategory}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
+                    {filteredProjects.map((project, index) => (
+                        <ProjectCard key={project.title} project={project} index={index} />
+                    ))}
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 };
