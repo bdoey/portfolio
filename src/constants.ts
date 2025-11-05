@@ -169,14 +169,14 @@ export const PUBLICATIONS: Publication[] = [
         title: 'How negative tones in earnings calls shape media narratives',
         meta: 'January 2025 · Review of Behavioral Finance',
         authors: 'Brandon Doey, Pieter Johannes De Jong',
-        abstract: 'This study investigates the relationship between earnings call sentiment and subsequent media coverage sentiment.',
+        abstract: 'This study investigates the relationship between earnings call sentiment and subsequent media coverage sentiment. Examining these synergistic effects between executive communication style and resulting news narratives provides novel insights. The unscripted qualitative discussions in earnings calls establish perceptions and outlooks that the media echoes in later coverage. Understanding these intricate connections between information channels aids communication experts and market analysts in shaping strategic messaging and predicting market impacts.',
         doi: 'https://doi.org/10.1108/RBF-08-2024-0228'
     },
     {
         title: 'Linguistic complexity and gender in financial analysis: Evidence from earnings call questioning patterns',
         meta: 'September 2025 · Journal of Behavioral Finance',
         authors: 'Brandon Doey, Pieter Johannes De Jong, Inga Timmerman Chira',
-        abstract: 'This study examines gender-based differences in linguistic complexity during earnings conference calls.',
+        abstract: 'This study examines gender-based differences in linguistic complexity during earnings conference calls. We analyze variations in syntactic complexity across analyst-CEO interactions and find that male analysts exhibit greater syntactic variability, but lower lexical complexity compared to female analysts. These patterns are more pronounced when questioning female CEOs and in smaller firms. The linguistic variations have measurable market consequences, with significant associations between communication patterns and post-call market reactions. Our findings suggest that gender diversity in analyst ranks may enhance information extraction during earnings calls through complementary questioning strategies.',
         doi: 'https://doi.org/10.1080/15427560.2025.2556660'
     }
 ];
