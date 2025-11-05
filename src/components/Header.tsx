@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           <a href="#contact">Brandon Doey</a>
         </h1>
         <p className="mt-4 uppercase text-sm tracking-[0.2rem]">
-          <b>Data & ML Engineer: Bridging Infrastructure and Insight</b>
+          <b>Senior Data Scientist | ML Engineer | Independent Researcher</b>
         </p>
         <p className="mt-4 text-sm max-w-2xl mx-auto">
           I thrive on leveraging data to uncover insights that drive impactful business decisions. My goal is to help organizations unlock the full potential of their data, delivering strategic recommendations that fuel growth, optimize operations, and drive innovation.
