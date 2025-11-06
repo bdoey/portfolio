@@ -1,32 +1,102 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { PUBLICATIONS } from '../constants';
 import { Publication } from '../types';
 
-const PublicationCard: React.FC<{ pub: Publication }> = ({ pub }) => (
-    <div className="border border-white/10 rounded-lg p-4 mb-4 bg-white/5">
-        <h3 className="font-semibold text-lg text-sky-300">{pub.title}</h3>
-        <p className="text-xs text-white/60 mt-1">{pub.meta}</p>
-        <p className="text-sm text-white/80 mt-2">{pub.authors}</p>
-        <p className="mt-2 text-white/90">{pub.abstract}</p>
-        <a 
-            href={pub.doi} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block mt-3 px-3 py-1 text-xs border border-white/30 rounded-md hover:bg-sky-500 hover:border-sky-500 transition-colors"
+const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, index }) => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="glass glass-hover rounded-lg p-6 mb-6 border relative overflow-hidden group"
         >
-            View DOI
-        </a>
-    </div>
-);
+            {/* Decorative element */}
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-sky-400 to-purple-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+
+            <div className="relative z-10 ml-4">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.2 + 0.2 }}
+                    className="flex items-start justify-between gap-4"
+                >
+                    <div className="flex-1">
+                        <h3 className="font-bold text-lg text-gradient mb-2 leading-tight">
+                            {pub.title}
+                        </h3>
+                        <div className="flex items-center gap-2 text-xs text-white/60 mb-3">
+                            <i className="fas fa-calendar-alt"></i>
+                            <span>{pub.meta}</span>
+                        </div>
+                    </div>
+                    <motion.div
+                        whileHover={{ rotate: 15, scale: 1.1 }}
+                        className="text-sky-400 text-2xl"
+                    >
+                        <i className="fas fa-book-open"></i>
+                    </motion.div>
+                </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.2 + 0.3 }}
+                    className="text-sm text-sky-200 font-medium mb-3"
+                >
+                    <i className="fas fa-users mr-2"></i>
+                    {pub.authors}
+                </motion.p>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.2 + 0.4 }}
+                    className="text-sm text-white/80 leading-relaxed mb-4"
+                >
+                    {pub.abstract}
+                </motion.p>
+
+                <motion.a
+                    href={pub.doi}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ delay: index * 0.2 + 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-sky-500/50 rounded-md bg-sky-500/10 hover:bg-sky-500 hover:border-sky-500 text-sky-300 hover:text-white transition-all shadow-lg shadow-sky-500/0 hover:shadow-sky-500/50"
+                >
+                    <i className="fas fa-external-link-alt"></i>
+                    View Publication
+                </motion.a>
+            </div>
+        </motion.div>
+    );
+};
 
 const Publications: React.FC = () => {
     return (
         <div>
-            <h2 className="major text-2xl font-semibold uppercase tracking-[0.5rem] border-b border-white pb-2 mb-6">Publications</h2>
+            <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-2xl font-semibold uppercase tracking-[0.5rem] border-b border-white/20 pb-2 mb-6 text-gradient"
+            >
+                Publications
+            </motion.h2>
             <div>
                 {PUBLICATIONS.map((pub, index) => (
-                    <PublicationCard key={index} pub={pub} />
+                    <PublicationCard key={index} pub={pub} index={index} />
                 ))}
             </div>
         </div>
