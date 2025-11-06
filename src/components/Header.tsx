@@ -35,26 +35,26 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, 
 
 const Header: React.FC = () => {
   return (
-    <header className="relative flex flex-col items-center text-center max-w-full p-4 overflow-hidden">
+    <header className="relative flex flex-col items-center text-center w-full p-4 bg-transparent">
       {/* Animated gradient background - enhanced for smoothness */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-900/30 via-purple-900/20 to-transparent animate-gradient bg-[length:200%_200%]"></div>
-      <div className="absolute inset-0 bg-gradient-to-tl from-purple-900/30 via-sky-900/20 to-transparent animate-gradient bg-[length:200%_200%]" style={{ animationDelay: '4s' }}></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-sky-900/30 via-purple-900/20 to-transparent animate-gradient bg-[length:200%_200%] pointer-events-none -z-10"></div>
+      <div className="fixed inset-0 bg-gradient-to-tl from-purple-900/30 via-sky-900/20 to-transparent animate-gradient bg-[length:200%_200%] pointer-events-none -z-10" style={{ animationDelay: '4s' }}></div>
 
       {/* Enhanced floating orbs with viewport-relative sizing and positioning for fluid animations */}
-      <div className="absolute" style={{ top: '5vh', left: '5vw', width: '15vw', height: '15vw', maxWidth: '200px', maxHeight: '200px', minWidth: '100px', minHeight: '100px' }}>
+      <div className="fixed pointer-events-none -z-10" style={{ top: '5vh', left: '5vw', width: '15vw', height: '15vw', maxWidth: '200px', maxHeight: '200px', minWidth: '100px', minHeight: '100px' }}>
         <div className="w-full h-full bg-gradient-to-br from-sky-400/20 to-sky-600/15 rounded-full blur-[40px] animate-float"></div>
       </div>
-      <div className="absolute" style={{ top: '15vh', right: '8vw', width: '12vw', height: '12vw', maxWidth: '180px', maxHeight: '180px', minWidth: '80px', minHeight: '80px', animationDelay: '2s' }}>
+      <div className="fixed pointer-events-none -z-10" style={{ top: '15vh', right: '8vw', width: '12vw', height: '12vw', maxWidth: '180px', maxHeight: '180px', minWidth: '80px', minHeight: '80px', animationDelay: '2s' }}>
         <div className="w-full h-full bg-gradient-to-br from-purple-400/25 to-purple-600/20 rounded-full blur-[40px] animate-drift"></div>
       </div>
-      <div className="absolute" style={{ bottom: '10vh', left: '10vw', width: '18vw', height: '18vw', maxWidth: '220px', maxHeight: '220px', minWidth: '120px', minHeight: '120px', animationDelay: '1s' }}>
+      <div className="fixed pointer-events-none -z-10" style={{ bottom: '10vh', left: '10vw', width: '18vw', height: '18vw', maxWidth: '220px', maxHeight: '220px', minWidth: '120px', minHeight: '120px', animationDelay: '1s' }}>
         <div className="w-full h-full bg-gradient-to-br from-sky-500/20 to-cyan-600/15 rounded-full blur-[45px] animate-float-delayed"></div>
       </div>
-      <div className="absolute" style={{ bottom: '5vh', right: '5vw', width: '20vw', height: '20vw', maxWidth: '250px', maxHeight: '250px', minWidth: '140px', minHeight: '140px', animationDelay: '3s' }}>
+      <div className="fixed pointer-events-none -z-10" style={{ bottom: '5vh', right: '5vw', width: '20vw', height: '20vw', maxWidth: '250px', maxHeight: '250px', minWidth: '140px', minHeight: '140px', animationDelay: '3s' }}>
         <div className="w-full h-full bg-gradient-to-br from-purple-500/25 to-pink-600/20 rounded-full blur-[50px] animate-drift"></div>
       </div>
 
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full bg-transparent">
         {/* Profile Image with animation */}
         <motion.div
           className="mb-8 inline-block"
