@@ -78,7 +78,7 @@ const Header: React.FC = () => {
 
         {/* Main content card */}
         <motion.div
-          className="w-full glass glass-hover rounded-lg shadow-2xl py-8 px-4 border"
+          className="w-full max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -133,12 +133,12 @@ const Header: React.FC = () => {
 
         {/* Navigation */}
         <motion.nav
-          className="mt-8"
+          className="mt-8 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.6 }}
         >
-          <ul className="flex glass rounded-md overflow-hidden shadow-lg">
+          <ul className="inline-flex glass rounded-md overflow-hidden shadow-lg">
             <NavLink href="#resume">Resume</NavLink>
             <NavLink href="#publications">Publications</NavLink>
             <NavLink href="#projects">Projects</NavLink>
