@@ -34,8 +34,8 @@ const App: React.FC = () => {
   }, []);
 
   const bgClasses = `
-    fixed top-0 left-0 w-full h-full bg-cover bg-center transition-transform duration-300 ease-in-out
-    ${isArticleVisible ? 'scale-105 blur-sm' : 'scale-110 blur-0'}
+    fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out
+    ${isArticleVisible ? 'scale-105 blur-sm' : 'scale-100 blur-0'}
   `;
 
   return (
