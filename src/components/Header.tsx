@@ -41,18 +41,18 @@ const Header: React.FC = () => {
         Replaced with a single, subtle, and professional animated gradient 
         that uses dark, tech-friendly colors (slate and dark sky blue).
         It re-uses your existing 'animate-gradient' animation class.
-        
+      */}        
       
       <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-sky-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] pointer-events-none -z-10"></div>
-      */}
+
 
       {/* --- ALTERNATIVE PROFESSIONAL BACKGROUND (Static Dot Grid) ---
         If you want a static (non-animated) background that feels very 'data' and 'tech',
         delete the 'div' above (line 55) and uncomment this one. This creates a clean, dark slate background with a subtle dot grid.
-      */}
+
       
       <div className="fixed inset-0 -z-10 h-full w-full bg-slate-900 bg-[radial-gradient(#cbd5e133_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      
+      */}      
 
       <div className="relative z-10 w-full bg-transparent">
         {/* Profile Image with animation */}
