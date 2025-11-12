@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Resume from './Resume';
 import Projects from './Projects';
@@ -22,23 +21,28 @@ const CloseButton = () => (
 
 const Main: React.FC<MainProps> = ({ activeArticle, isVisible }) => {
     const articleClasses = `
+        relative z-10
         w-[40rem] max-w-[95vw] bg-black/90 backdrop-blur-md rounded-lg shadow-2xl border border-white/10
         transition-all duration-300 ease-in-out
         ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}
     `;
 
     const overlayClasses = `
-        fixed inset-0 bg-transparent backdrop-blur-sm
+        absolute inset-0 bg-black/30 backdrop-blur-sm
         transition-opacity duration-300 ease-in-out
         ${isVisible ? 'opacity-100' : 'opacity-0'}
     `;
 
   return (
     <main className="fixed inset-0 z-20 flex items-center justify-center p-4">
-        {/* Backdrop overlay with blur */}
+        {/* Backdrop overlay.
+          Now 'absolute' to fill its 'fixed' parent <main>.
+        */}
         <a href="#" className={overlayClasses} aria-label="Close modal"></a>
 
-        {/* Modal content */}
+        {/* Modal content.
+          Now 'relative' and 'z-10' to ensure it's on top of the overlay.
+        */}
         <div className={articleClasses}>
             <div className="relative p-6 sm:p-10 max-h-[90vh] overflow-y-auto scrollbar-thin">
                 <CloseButton />
