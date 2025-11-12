@@ -14,7 +14,7 @@ const SocialLink: React.FC<{ href: string; icon: string; label: string; delay: n
       rel="noopener noreferrer"
       whileHover={{ scale: 1.2, rotate: 5 }}
       whileTap={{ scale: 0.9 }}
-      className="flex items-center justify-center w-12 h-12 border-2 border-white/30 rounded-full transition-all duration-300 hover:bg-sky-500 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/50"
+      className="flex items-center justify-center w-12 h-12 border-2 border-white/30 rounded-full transition-all duration-300 hover:bg-slate-600 hover:border-slate-600 hover:shadow-lg hover:shadow-slate-600/50"
       aria-label={label}
     >
       <i className={`fa-brands ${icon} text-lg`}></i>
@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
                     transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                     className="inline-block mb-6"
                 >
-                    <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-sky-400 to-purple-500 flex items-center justify-center shadow-lg shadow-sky-500/50">
+                    <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-slate-400 to-slate-600 flex items-center justify-center shadow-lg shadow-slate-500/50">
                         <i className="fas fa-envelope text-3xl text-white"></i>
                     </div>
                 </motion.div>
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
                         href="mailto:brandon.doey@icloud.com"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold bg-sky-500 hover:bg-sky-600 text-white rounded-lg shadow-lg shadow-sky-500/50 hover:shadow-sky-500/70 transition-all"
+                        className="inline-flex items-center gap-3 px-8 py-4 text-lg font-bold bg-slate-600 hover:bg-slate-700 text-white rounded-lg shadow-lg shadow-slate-600/50 hover:shadow-slate-600/70 transition-all"
                     >
                         <i className="fas fa-paper-plane"></i>
                         Email Me

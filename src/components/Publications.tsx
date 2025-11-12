@@ -20,7 +20,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
             className="glass glass-hover rounded-lg p-6 mb-6 border relative overflow-hidden group"
         >
             {/* Decorative element */}
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-sky-400 to-purple-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-slate-400 to-slate-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
 
             <div className="relative z-10 ml-4">
                 <motion.div
@@ -40,7 +40,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     </div>
                     <motion.div
                         whileHover={{ rotate: 15, scale: 1.1 }}
-                        className="text-sky-400 text-2xl"
+                        className="text-slate-400 text-2xl"
                     >
                         <i className="fas fa-book-open"></i>
                     </motion.div>
@@ -50,7 +50,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ delay: index * 0.2 + 0.3 }}
-                    className="text-sm text-sky-200 font-medium mb-3"
+                    className="text-sm text-slate-200 font-medium mb-3"
                 >
                     <i className="fas fa-users mr-2"></i>
                     {pub.authors}
@@ -74,7 +74,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     transition={{ delay: index * 0.2 + 0.5 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-sky-500/50 rounded-md bg-sky-500/10 hover:bg-sky-500 hover:border-sky-500 text-sky-300 hover:text-white transition-all shadow-lg shadow-sky-500/0 hover:shadow-sky-500/50"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-slate-500/50 rounded-md bg-slate-500/10 hover:bg-slate-600 hover:border-slate-600 text-slate-300 hover:text-white transition-all shadow-lg shadow-slate-500/0 hover:shadow-slate-600/50"
                 >
                     <i className="fas fa-external-link-alt"></i>
                     View Publication

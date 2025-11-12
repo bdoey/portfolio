@@ -29,7 +29,7 @@ const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) 
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.3, delay: index * 0.02 }}
             whileHover={{ scale: 1.1, y: -2 }}
-            className="bg-sky-900/50 text-sky-200 text-xs font-medium px-3 py-1 rounded-full border border-sky-500/30 hover:bg-sky-800/60 hover:border-sky-400/50 transition-all cursor-default"
+            className="bg-slate-900/50 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-slate-500/30 hover:bg-slate-800/60 hover:border-slate-400/50 transition-all cursor-default"
         >
             {name}
         </motion.span>
@@ -48,18 +48,18 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="relative pl-8 pb-8 border-l-2 border-sky-500/30 last:pb-0"
+            className="relative pl-8 pb-8 border-l-2 border-slate-500/30 last:pb-0"
         >
             {/* Timeline dot */}
             <motion.div
                 initial={{ scale: 0 }}
                 animate={inView ? { scale: 1 } : { scale: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-sky-500 border-2 border-[#1b1f22] shadow-lg shadow-sky-500/50"
+                className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-500 border-2 border-[#1b1f22] shadow-lg shadow-slate-500/50"
             />
 
             <div className="glass glass-hover rounded-lg p-5 border">
-                <h4 className="font-bold text-lg text-sky-300">{exp.role}</h4>
+                <h4 className="font-bold text-lg text-slate-300">{exp.role}</h4>
                 <p className="text-white/70 text-sm mt-1">
                     <span className="font-semibold">{exp.company}</span>
                     <span className="mx-2">•</span>
@@ -74,7 +74,7 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
                             transition={{ duration: 0.4, delay: index * 0.1 + i * 0.1 }}
                             className="flex items-start"
                         >
-                            <span className="text-sky-400 mr-2 mt-1">▹</span>
+                            <span className="text-slate-400 mr-2 mt-1">▹</span>
                             <span>{point}</span>
                         </motion.li>
                     ))}
@@ -102,13 +102,13 @@ const EducationCard: React.FC<{ edu: EducationType; index: number }> = ({ edu, i
                 <motion.div
                     initial={{ rotate: 0 }}
                     whileHover={{ rotate: 15 }}
-                    className="text-sky-400 text-2xl mr-4 mt-1"
+                    className="text-slate-400 text-2xl mr-4 mt-1"
                 >
                     <i className="fas fa-graduation-cap"></i>
                 </motion.div>
                 <div className="flex-1">
                     <h4 className="font-bold text-lg text-white">{edu.degree}</h4>
-                    <p className="text-sky-300 text-sm mt-1">{edu.university}</p>
+                    <p className="text-slate-300 text-sm mt-1">{edu.university}</p>
                     <p className="text-xs text-white/60 italic mt-2 leading-relaxed">
                         {edu.concentration}
                     </p>
@@ -139,7 +139,7 @@ const Resume: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: groupIndex * 0.1 }}
                     >
-                        <h4 className="font-bold text-sky-300 mb-3 text-base">{group.category}</h4>
+                        <h4 className="font-bold text-slate-300 mb-3 text-base">{group.category}</h4>
                         <div className="flex flex-wrap gap-2">
                             {group.skills.map((skill, index) => (
                                 <SkillBadge key={skill.name} name={skill.name} index={index} />
