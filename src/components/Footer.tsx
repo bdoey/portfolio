@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <p className="text-sm sm:text-base">
         <a
           href="#contact"
-          className="inline-block border-b border-dotted border-white/50 hover:border-sky-400/50 hover:text-sky-400 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-sky-400/20"
+          className="inline-block border-b border-dotted border-white/50 hover:border-slate-400/50 hover:text-slate-400 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-slate-400/20"
         >
           Contact Me
         </a>

@@ -36,14 +36,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 
                     {/* Hover overlay with icon */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="bg-sky-500/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                        <div className="bg-slate-600/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-300">
                             <i className="fas fa-external-link-alt text-white text-xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <div className="p-5">
-                    <h4 className="font-bold text-lg text-gradient mb-2 group-hover:text-sky-300 transition-colors">
+                    <h4 className="font-bold text-lg text-gradient mb-2 group-hover:text-slate-300 transition-colors">
                         {project.title}
                     </h4>
                     <p className="text-sm text-white/80 leading-relaxed mb-3">
@@ -59,7 +59,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                                     transition={{ duration: 0.3, delay: index * 0.1 + i * 0.05 }}
-                                    className="px-2 py-1 text-xs bg-sky-500/20 text-sky-300 rounded border border-sky-500/30 hover:bg-sky-500/30 transition-colors"
+                                    className="px-2 py-1 text-xs bg-slate-500/20 text-slate-300 rounded border border-slate-500/30 hover:bg-slate-500/30 transition-colors"
                                 >
                                     {tech}
                                 </motion.span>
@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         className={`px-4 py-2 text-sm rounded-lg transition-all duration-300 font-medium ${
                             activeCategory === category
-                                ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/50'
+                                ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/50'
                                 : 'glass glass-hover text-white/80 hover:text-white'
                         }`}
                     >

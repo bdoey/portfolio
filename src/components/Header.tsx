@@ -12,7 +12,7 @@ const SocialLink: React.FC<{ href: string; icon: string; label: string; delay: n
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center w-9 h-9 border border-white rounded-full transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:border-sky-400 hover:shadow-lg hover:shadow-sky-400/50"
+      className="flex items-center justify-center w-9 h-9 border border-white rounded-full transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:border-slate-400 hover:shadow-lg hover:shadow-slate-400/50"
       aria-label={label}
     >
       <i className={`fa-brands ${icon}`}></i>
@@ -24,10 +24,10 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, 
   <li className="border-l border-white first:border-l-0">
     <a
       href={href}
-      className="block px-5 h-11 leading-[2.75rem] text-xs uppercase tracking-[0.2rem] transition-all duration-300 hover:bg-white/10 hover:text-sky-400 relative group"
+      className="block px-5 h-11 leading-[2.75rem] text-xs uppercase tracking-[0.2rem] transition-all duration-300 hover:bg-white/10 hover:text-slate-400 relative group"
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 transition-all duration-300 group-hover:w-full"></span>
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-400 transition-all duration-300 group-hover:w-full"></span>
     </a>
   </li>
 );
@@ -38,12 +38,12 @@ const Header: React.FC = () => {
       
       {/* REPLACEMENT BACKGROUND:
         Removed the purple gradients and floating orbs.
-        Replaced with a single, subtle, and professional animated gradient 
-        that uses dark, tech-friendly colors (slate and dark sky blue).
+        Replaced with a single, subtle, and professional animated gradient
+        that uses dark, tech-friendly grayscale colors (slate).
         It re-uses your existing 'animate-gradient' animation class.
       */}        
       
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-sky-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] pointer-events-none -z-10"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] pointer-events-none -z-10"></div>
 
 
       {/* --- ALTERNATIVE PROFESSIONAL BACKGROUND (Static Dot Grid) ---
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.div
-            className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-sky-400/50 shadow-xl shadow-sky-400/30"
+            className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-slate-400/50 shadow-xl shadow-slate-400/30"
             whileHover={{ scale: 1.05, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
               alt="Brandon Doey"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-sky-500/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-600/20"></div>
           </motion.div>
         </motion.div>
 
@@ -89,11 +89,11 @@ const Header: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <a href="#contact" className="hover:text-sky-300 transition-colors">Brandon Doey</a>
+            <a href="#contact" className="hover:text-slate-300 transition-colors">Brandon Doey</a>
           </motion.h1>
 
           <motion.div
-            className="mt-4 uppercase text-sm tracking-[0.2rem] font-semibold text-sky-300 min-h-[1.5rem]"
+            className="mt-4 uppercase text-sm tracking-[0.2rem] font-semibold text-slate-300 min-h-[1.5rem]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
