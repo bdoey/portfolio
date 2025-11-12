@@ -68,7 +68,7 @@ const Header: React.FC = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <img
-              src="https://raw.githubusercontent.com/bdoey/bdoey.github.io/refs/heads/main/images/bdoey.jpeg"
+              src="https://raw.githubusercontent.com/bdoey/portfolio/refs/heads/main/bdoey1.png"
               alt="Brandon Doey"
               className="w-full h-full object-cover"
             />
