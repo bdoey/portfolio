@@ -20,7 +20,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
             className="glass glass-hover rounded-lg p-6 mb-6 border relative overflow-hidden group"
         >
             {/* Decorative element */}
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-slate-400 to-slate-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-slate-400 to-slate-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-top"></div>
 
             <div className="relative z-10 ml-4">
                 <motion.div

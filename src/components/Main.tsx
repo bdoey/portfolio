@@ -28,7 +28,7 @@ const Main: React.FC<MainProps> = ({ activeArticle, isVisible }) => {
     `;
 
     const overlayClasses = `
-        fixed inset-0 bg-black/60 backdrop-blur-sm
+        fixed inset-0 bg-black/20 backdrop-blur-sm
         transition-opacity duration-300 ease-in-out
         ${isVisible ? 'opacity-100' : 'opacity-0'}
     `;
