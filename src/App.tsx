@@ -42,7 +42,7 @@ const App: React.FC = () => {
     <div className={`min-h-screen text-white font-light leading-relaxed ${isPreloading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
       <div 
         className={bgClasses} 
-        style={{ backgroundImage: "url('https://raw.githubusercontent.com/bdoey/portfolio/refs/heads/main/black2-bg.jpeg')" }}
+        style={{ backgroundImage: "url('https://raw.githubusercontent.com/bdoey/portfolio/refs/heads/main/bdoey1.png')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/50"></div>
       </div>
