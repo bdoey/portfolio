@@ -1,22 +1,70 @@
-
 import { SkillGroup, Experience, Education, Project, Publication } from './types';
 
 export const SKILLS: SkillGroup[] = [
     {
-        category: 'Languages',
-        skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}]
+        category: 'Machine Learning & Data Science',
+        skills: [
+            {name: 'Supervised Learning (Regression, KNN, SVM, XGBoost)'},
+            {name: 'Unsupervised Learning (NLP, RoBERTa, K-Means, PCA)'},
+            {name: 'Reinforcement Learning (Markov Chains, Q-Learning, Monte Carlo)'},
+            {name: 'Deep Learning (RNN, CNN, LSTM, MLP)'},
+            {name: 'Quantitative Modeling'},
+            {name: 'Sentiment Analysis'},
+            {name: 'TensorFlow'},
+            {name: 'PyTorch'},
+            {name: 'SpaCy'},
+            {name: 'Pandas'},
+            {name: 'Numpy'},
+            {name: 'Scikit-Learn'}
+        ]
     },
     {
-        category: 'AI / ML Frameworks',
-        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'NLP'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
+        category: 'Programming & Development',
+        skills: [
+            {name: 'Python'},
+            {name: 'R'},
+            {name: 'SQL'},
+            {name: 'JavaScript'},
+            {name: 'Node.js'},
+            {name: 'Web3'},
+            {name: 'Solidity'},
+            {name: 'Rust'},
+            {name: 'Go'},
+            {name: 'Linux'},
+            {name: 'Apache'},
+            {name: 'HTML/CSS'},
+            {name: 'XML'}
+        ]
     },
     {
-        category: 'Generative & Agentic AI',
-        skills: [{name: 'LLM Fine-Tuning (Axolotl/Unsloth)'}, {name: 'Retrieval Augmented Generation (RAG)'}, {name: 'Agentic Architectures (PydanticAI/CrewAI)'}, {name: 'Hugging Face Transformers'}, {name: 'Vector Databases (Chroma/Weaviate)'}, {name: 'Ollama'}, {name: 'LangChain'}]
+        category: 'Business Intelligence & Data Engineering',
+        skills: [
+            {name: 'Google Cloud Platform'},
+            {name: 'BigQuery'},
+            {name: 'Looker'},
+            {name: 'Qlik Sense'},
+            {name: 'Tableau'},
+            {name: 'Collibra'},
+            {name: 'Teradata'},
+            {name: 'Smartsheets'},
+            {name: 'Confluence'},
+            {name: 'ServiceNow'},
+            {name: 'Apache Airflow'},
+            {name: 'SAP'}
+        ]
+    }
+];
+
+export const EDUCATION: Education[] = [
+    {
+        degree: 'MS, Finance Technology (FinTech) (2024)',
+        university: 'University of Central Florida',
+        concentration: 'Concentration in AI/ML applications for FinTech innovation. Coursework in quantitative analysis, financial modeling, and blockchain technology.'
     },
     {
-        category: 'MLOps & Business Intelligence',
-        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'Apache Airflow'}, {name: 'REST APIs'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
+        degree: 'BS, Management Information Systems (2010)',
+        university: 'University of Central Florida',
+        concentration: 'Concentration in database management, systems analysis, and project management. Hands-on experience with SAP ERP, Visual Basic, and SQL.'
     }
 ];
 
@@ -26,10 +74,9 @@ export const EXPERIENCE: Experience[] = [
         company: 'Verizon',
         duration: 'Aug 2024 – Present',
         points: [
-            'Led the design and development of a novel multi-agent framework to automate wireless churn analysis and anomaly detection, reducing manual investigation time by 60% and enabling proactive retention strategies.',
             'Architected and implemented a self-optimizing wireless churn forecasting pipeline leveraging Optuna hyperparameter tuning and a customized NeuralProphet model, achieving 15% higher prediction accuracy and extending forecast horizons by 3 months.',
-            'Designed an innovative XGBoost-Prophet hybrid ensemble model that increased churn prediction accuracy by 10% while reducing computational overhead by 25%.',
-            'Led the end-to-end execution of A/B tests to validate model performance against core business KPIs, presenting findings to stakeholders to iterate on data-driven insights.'
+            'Designed and deployed a GenAI-powered anomaly detection system that autonomously identifies churn pattern anomalies and generates executive-ready summaries, reducing time-to-insight from days to hours and enabling proactive retention strategies.',
+            'Developed an innovative XGBoost-Prophet hybrid ensemble forecasting model for Verizon\'s Fixed Wireless Access team, increasing churn prediction accuracy by 10% while reducing computational overhead by 25%.'
         ]
     },
     {
@@ -45,7 +92,7 @@ export const EXPERIENCE: Experience[] = [
     {
         role: 'Systems Analysis & Programming Supervisor',
         company: 'Verizon',
-        duration: 'Mar 2017 – Jan 2021',
+        duration: 'Sep 2017 – Jan 2021',
         points: [
            "Successfully integrated Verizon's Finance Corporate Systems organization into their new ServiceNow CMDB platform (15 teams, 150 users) enabling improved stakeholder visibility by increasing ITIL process adoption and increasing customer satisfaction rates by 60%.",
            "Managed a diverse team of systems specialists that supported Verizon's internal ERP Portal infrastructure which incorporated both SAP ERP platforms and Oracle's PeopleSoft systems critical for finance operations.",
@@ -53,27 +100,45 @@ export const EXPERIENCE: Experience[] = [
         ]
     },
     {
+        role: 'Lead Systems Specialist',
+        company: 'Verizon',
+        duration: 'Mar 2017 – Sep 2017',
+        points: [
+            'Coordinated the delivery of a comprehensive enterprise-wide ERP support solution for Verizon’s SAP ERP platforms and negotiated key SLA agreements with external support vendors.',
+            'Managed global SAP support teams to triage ERP-related issues, resulting in a 30% decrease to resolution times.',
+            'Improved internal customer satisfaction by 20% through the implementation of organization-wide KPIs.'
+        ]
+    },
+    {
         role: 'Lead Systems Analyst',
         company: 'Aon',
         duration: 'Jan 2015 – Mar 2017',
         points: [
-            'Translated complex business requirements into technical specifications for a new benefits administration platform serving over 150,000 employees.',
-            'Collaborated with cross-functional teams to design and implement robust data validation and processing workflows, ensuring high data integrity for downstream analytical processes.',
-            'Led the design and delivery of technical training programs, creating thorough documentation to ensure a seamless transition and high proficiency with new systems.'
+            'Partnered with the HR Technology team to implement a new benefit administration platform, which was completed ahead of schedule and under budget, serving 150,000+ employees.',
+            'Led cross-functional development and design teams to deliver training for 50+ internal employees to ensure smooth transition to the new platform.',
+            'Employed Agile project management methodology to move complex software improvements through the Software Development Life Cycle (SDLC) and into production.'
         ]
-    }
-];
-
-export const EDUCATION: Education[] = [
-    {
-        degree: 'MS, Finance Technology (FinTech)',
-        university: 'University of Central Florida',
-        concentration: 'Concentration in AI/ML applications for FinTech innovation.'
     },
     {
-        degree: 'BS, Management Information Systems',
-        university: 'University of Central Florida',
-        concentration: 'Concentration in database management, systems analysis, and project management.'
+        role: 'Systems Analyst',
+        company: 'Aon',
+        duration: 'Apr 2012 – Jan 2015',
+        points: [
+            'Designated a Subject Matter Expert (SME) on Aon\'s proprietary TBA web portal.',
+            'Performed comprehensive QA testing to verify functionality and ensure system stability.',
+            'Configured Aon\'s benefits administration system serving over 15 clients\' requirements.'
+        ]
+    },
+    {
+        role: 'Linux Server Analyst',
+        company: 'HostDime',
+        duration: 'Jul 2008 – Apr 2012',
+        points: [
+            'Deployed and managed HostDime’s Virtual Private Server product line with 99.95% uptime.',
+            'Exceeded sales targets with high ROI solutions sold throughout 7 international branches on monthly basis.',
+            'Created curriculum and led the first 3-week Employee Training program for new hires.',
+            'Provided 24/7 support on CentOS Linux based web servers for international clients.'
+        ]
     }
 ];
 
@@ -160,7 +225,7 @@ export const PROJECTS: Project[] = [
     },
     {
         category: 'Machine Learning',
-        title: 'Dropout Prediction using FF Neural Network',
+        title: 'Dropout Prediction Neural Network',
         image: 'https://picsum.photos/seed/ml2/600/400',
         description: 'Applies a Keras-based Feed-Forward Neural Network to predict the likelihood of college student dropouts.',
         link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Dropout_Prediction_using_FFNN.ipynb',
