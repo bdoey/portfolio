@@ -1,70 +1,22 @@
+
 import { SkillGroup, Experience, Education, Project, Publication } from './types';
 
 export const SKILLS: SkillGroup[] = [
     {
-        category: 'Machine Learning & Data Science',
-        skills: [
-            {name: 'Supervised Learning (Regression, KNN, SVM, XGBoost)'},
-            {name: 'Unsupervised Learning (NLP, RoBERTa, K-Means, PCA)'},
-            {name: 'Reinforcement Learning (Markov Chains, Q-Learning, Monte Carlo)'},
-            {name: 'Deep Learning (RNN, CNN, LSTM, MLP)'},
-            {name: 'Quantitative Modeling'},
-            {name: 'Sentiment Analysis'},
-            {name: 'TensorFlow'},
-            {name: 'PyTorch'},
-            {name: 'SpaCy'},
-            {name: 'Pandas'},
-            {name: 'Numpy'},
-            {name: 'Scikit-Learn'}
-        ]
+        category: 'Languages',
+        skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}]
     },
     {
-        category: 'Programming & Development',
-        skills: [
-            {name: 'Python'},
-            {name: 'R'},
-            {name: 'SQL'},
-            {name: 'JavaScript'},
-            {name: 'Node.js'},
-            {name: 'Web3'},
-            {name: 'Solidity'},
-            {name: 'Rust'},
-            {name: 'Go'},
-            {name: 'Linux'},
-            {name: 'Apache'},
-            {name: 'HTML/CSS'},
-            {name: 'XML'}
-        ]
+        category: 'AI / ML Frameworks',
+        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'NLP'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
     },
     {
-        category: 'Business Intelligence & Data Engineering',
-        skills: [
-            {name: 'Google Cloud Platform'},
-            {name: 'BigQuery'},
-            {name: 'Looker'},
-            {name: 'Qlik Sense'},
-            {name: 'Tableau'},
-            {name: 'Collibra'},
-            {name: 'Teradata'},
-            {name: 'Smartsheets'},
-            {name: 'Confluence'},
-            {name: 'ServiceNow'},
-            {name: 'Apache Airflow'},
-            {name: 'SAP'}
-        ]
-    }
-];
-
-export const EDUCATION: Education[] = [
-    {
-        degree: 'MS, Finance Technology (FinTech) (2024)',
-        university: 'University of Central Florida',
-        concentration: 'Concentration in AI/ML applications for FinTech innovation. Coursework in quantitative analysis, financial modeling, and blockchain technology.'
+        category: 'Generative & Agentic AI',
+        skills: [{name: 'LLM Fine-Tuning (Axolotl/Unsloth)'}, {name: 'Retrieval Augmented Generation (RAG)'}, {name: 'Agentic Architectures (PydanticAI/CrewAI)'}, {name: 'Hugging Face Transformers'}, {name: 'Vector Databases (Chroma/Weaviate)'}, {name: 'Ollama'}, {name: 'LangChain'}]
     },
     {
-        degree: 'BS, Management Information Systems (2010)',
-        university: 'University of Central Florida',
-        concentration: 'Concentration in database management, systems analysis, and project management. Hands-on experience with SAP ERP, Visual Basic, and SQL.'
+        category: 'MLOps & Business Intelligence',
+        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'Apache Airflow'}, {name: 'REST APIs'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
     }
 ];
 
@@ -139,6 +91,19 @@ export const EXPERIENCE: Experience[] = [
             'Created curriculum and led the first 3-week Employee Training program for new hires.',
             'Provided 24/7 support on CentOS Linux based web servers for international clients.'
         ]
+    }
+];
+
+export const EDUCATION: Education[] = [
+    {
+        degree: 'MS, Finance Technology (FinTech)',
+        university: 'University of Central Florida',
+        concentration: 'Concentration in AI/ML applications for FinTech innovation.'
+    },
+    {
+        degree: 'BS, Management Information Systems',
+        university: 'University of Central Florida',
+        concentration: 'Concentration in database management, systems analysis, and project management.'
     }
 ];
 
@@ -225,7 +190,7 @@ export const PROJECTS: Project[] = [
     },
     {
         category: 'Machine Learning',
-        title: 'Dropout Prediction Neural Network',
+        title: 'Dropout Prediction using FF Neural Network',
         image: 'https://picsum.photos/seed/ml2/600/400',
         description: 'Applies a Keras-based Feed-Forward Neural Network to predict the likelihood of college student dropouts.',
         link: 'https://github.com/bdoey/bdoey.github.io/blob/main/notebooks/ML_Dropout_Prediction_using_FFNN.ipynb',
