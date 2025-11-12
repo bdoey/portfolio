@@ -29,14 +29,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                     <motion.img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                         loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-150"></div>
 
                     {/* Hover overlay with icon */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="bg-slate-600/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                        <div className="bg-slate-600/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-150">
                             <i className="fas fa-external-link-alt text-white text-xl"></i>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`px-4 py-2 text-sm rounded-lg transition-all duration-300 font-medium ${
+                        className={`px-4 py-2 text-sm rounded-lg transition-all duration-150 font-medium ${
                             activeCategory === category
                                 ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/50'
                                 : 'glass glass-hover text-white/80 hover:text-white'
