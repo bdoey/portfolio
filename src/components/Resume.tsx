@@ -27,8 +27,8 @@ const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) 
             ref={ref}
             initial={{ opacity: 0, scale: 0 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.001, delay: index * 0.0001 }}
-            whileHover={{ scale: 1.001, y: -2 }}
+            transition={{ duration: 0.0001, delay: index * 0.00001 }}
+            whileHover={{ scale: 1.0001, y: -2 }}
             className="bg-slate-900/50 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-slate-500/30 hover:bg-slate-800/60 hover:border-slate-400/50 transition-all cursor-default"
         >
             {name}
@@ -47,7 +47,7 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.06, delay: index * 0.01 }}
+            transition={{ duration: 0.006, delay: index * 0.001 }}
             className="relative pl-8 pb-8 border-l-2 border-slate-500/30 last:pb-0"
         >
             {/* Timeline dot */}
@@ -71,7 +71,7 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
                             key={i}
                             initial={{ opacity: 0, x: -20 }}
                             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                            transition={{ duration: 0.04, delay: index * 0.01 + i * 0.01 }}
+                            transition={{ duration: 0.004, delay: index * 0.001 + i * 0.001 }}
                             className="flex items-start"
                         >
                             <span className="text-slate-400 mr-2 mt-1">▹</span>
@@ -95,7 +95,7 @@ const EducationCard: React.FC<{ edu: EducationType; index: number }> = ({ edu, i
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.05, delay: index * 0.01 }}
+            transition={{ duration: 0.005, delay: index * 0.001 }}
             className="glass glass-hover rounded-lg p-5 border"
         >
             <div className="flex items-start">
