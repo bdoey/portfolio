@@ -47,14 +47,14 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.06, delay: index * 0.01 }}
             className="relative pl-8 pb-8 border-l-2 border-slate-500/30 last:pb-0"
         >
             {/* Timeline dot */}
             <motion.div
                 initial={{ scale: 0 }}
                 animate={inView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+                transition={{ duration: 0.04, delay: index * 0.01 + 0.02 }}
                 className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-500 border-2 border-[#1b1f22] shadow-lg shadow-slate-500/50"
             />
 
@@ -71,7 +71,7 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
                             key={i}
                             initial={{ opacity: 0, x: -20 }}
                             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                            transition={{ duration: 0.4, delay: index * 0.1 + i * 0.1 }}
+                            transition={{ duration: 0.04, delay: index * 0.01 + i * 0.01 }}
                             className="flex items-start"
                         >
                             <span className="text-slate-400 mr-2 mt-1">▹</span>
@@ -95,7 +95,7 @@ const EducationCard: React.FC<{ edu: EducationType; index: number }> = ({ edu, i
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.05, delay: index * 0.01 }}
             className="glass glass-hover rounded-lg p-5 border"
         >
             <div className="flex items-start">
@@ -137,7 +137,7 @@ const Resume: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: groupIndex * 0.1 }}
+                        transition={{ delay: groupIndex * 0.01 }}
                     >
                         <h4 className="font-bold text-slate-300 mb-3 text-base">{group.category}</h4>
                         <div className="flex flex-wrap gap-2">
