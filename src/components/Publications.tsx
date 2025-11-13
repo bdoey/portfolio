@@ -16,7 +16,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
             ref={ref}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.6, delay: 0 }}
+            transition={{ duration: 0.6}}
             className="glass glass-hover rounded-lg p-6 mb-6 border relative overflow-hidden group"
         >
             {/* Decorative element */}
@@ -26,7 +26,6 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0 }}
                     className="flex items-start justify-between gap-4"
                 >
                     <div className="flex-1">
@@ -49,7 +48,6 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0 }}
                     className="text-sm text-slate-200 font-medium mb-3"
                 >
                     <i className="fas fa-users mr-2"></i>
@@ -59,7 +57,6 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0 }}
                     className="text-sm text-white/80 leading-relaxed mb-4"
                 >
                     {pub.abstract}
@@ -71,7 +68,6 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     rel="noopener noreferrer"
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-slate-500/50 rounded-md bg-slate-500/10 hover:bg-slate-600 hover:border-slate-600 text-slate-300 hover:text-white transition-all shadow-lg shadow-slate-500/0 hover:shadow-slate-600/50"
