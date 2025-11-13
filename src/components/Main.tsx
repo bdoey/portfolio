@@ -1,3 +1,13 @@
+/**
+ * Main Modal Component
+ *
+ * Purpose: Modal container that displays different content sections in a centered overlay.
+ * Controls: Modal visibility and animations, backdrop blur effect, close button functionality,
+ * and dynamically renders the appropriate content component (Resume, Projects, Publications,
+ * or Contact) based on the active hash navigation route. Features smooth slide-up entrance
+ * and fade transitions.
+ */
+
 import React from 'react';
 import Resume from './Resume';
 import Projects from './Projects';

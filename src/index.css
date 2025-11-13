@@ -1,3 +1,13 @@
+/**
+ * Global Styles and Tailwind CSS
+ *
+ * Purpose: Defines global CSS styles, Tailwind directives, and custom utility classes.
+ * Controls: Base HTML styling (font size, font family "Source Sans 3", smooth scrolling),
+ * custom scrollbar appearance, accessibility features (prefers-reduced-motion support),
+ * reusable utility classes (.text-gradient, .glass, .scrollbar-thin), and performance
+ * optimizations for animated elements throughout the portfolio website.
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

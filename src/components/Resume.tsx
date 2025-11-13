@@ -1,3 +1,13 @@
+/**
+ * Resume Component
+ *
+ * Purpose: Displays comprehensive professional resume information in the modal.
+ * Controls: Three main sections - Core Competencies (technical skills organized by category
+ * with animated badge chips), Professional Experience (timeline view with company, role,
+ * duration, and achievement bullets), and Education (degree information with university
+ * and concentration details). Features scroll-triggered animations using Intersection
+ * Observer and staggered entrance effects for each item.
+ */
 
 import React from 'react';
 import { motion } from 'framer-motion';

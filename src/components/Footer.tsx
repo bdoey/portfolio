@@ -1,3 +1,10 @@
+/**
+ * Footer Component
+ *
+ * Purpose: Simple footer section displayed at the bottom of the home page.
+ * Controls: "Contact Me" link that opens the contact modal with hover effects
+ * including text color change, underline animation, and subtle lift effect.
+ */
 
 import React from 'react';
 

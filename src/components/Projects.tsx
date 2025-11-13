@@ -1,3 +1,12 @@
+/**
+ * Projects Component
+ *
+ * Purpose: Displays filterable project portfolio gallery in the modal.
+ * Controls: Category filter buttons (Generative AI, FinTech Apps, Data Science, Machine Learning),
+ * responsive grid layout of project cards showing images, titles, descriptions, and tech stack badges,
+ * hover effects with scale and overlay animations, and external links to GitHub notebooks.
+ * Features smooth category transitions using AnimatePresence and scroll-triggered card animations.
+ */
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

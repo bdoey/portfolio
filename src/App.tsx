@@ -1,3 +1,11 @@
+/**
+ * Root Application Component
+ *
+ * Purpose: Main orchestrator component that manages the portfolio website's routing and layout.
+ * Controls: Hash-based navigation between sections (resume, projects, publications, contact),
+ * modal visibility state, background image with blur effects, page transitions and animations,
+ * and the overall layout structure combining Header, Footer, and Main modal components.
+ */
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
