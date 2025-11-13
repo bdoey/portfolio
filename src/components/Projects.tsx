@@ -29,7 +29,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                     <motion.img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="w-full h-48 object-cover transition-transform duration-150 group-hover:scale-110"
                         loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-150"></div>
