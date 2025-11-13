@@ -1,3 +1,11 @@
+/**
+ * TypeScript Type Definitions
+ *
+ * Purpose: Defines all TypeScript interfaces and types used throughout the portfolio.
+ * Controls: Type safety and IntelliSense for portfolio data structures including skills,
+ * work experience, education, projects, and publications. These types ensure consistent
+ * data shapes across all components and prevent runtime errors.
+ */
 
 export type SkillCategory = 'Languages' | 'AI / ML Frameworks' | 'Generative & Agentic AI' | 'MLOps & Business Intelligence';
 

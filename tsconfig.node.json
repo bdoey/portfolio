@@ -1,3 +1,10 @@
+/**
+ * TypeScript Configuration (Node/Build Tools)
+ *
+ * Purpose: Configures TypeScript settings specifically for the Vite build configuration.
+ * Controls: TypeScript compilation of vite.config.ts with Node-compatible module
+ * resolution and synthetic default imports for better module compatibility.
+ */
 
 {
   "compilerOptions": {

@@ -1,3 +1,14 @@
+/**
+ * Header Component
+ *
+ * Purpose: Main header section displayed on the portfolio home page.
+ * Controls: Profile photo with animation effects, name display with gradient styling,
+ * rotating job title animation (Senior Data Scientist, ML Engineer, Independent Researcher),
+ * professional summary/bio text, social media links (LinkedIn, GitHub, Facebook, Twitter),
+ * and primary navigation menu to Resume, Publications, and Projects sections.
+ * All elements feature staggered entrance animations using Framer Motion.
+ */
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';

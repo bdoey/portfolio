@@ -1,3 +1,12 @@
+/**
+ * Tailwind CSS Configuration
+ *
+ * Purpose: Defines the Tailwind CSS theme and design system for the portfolio.
+ * Controls: Custom color palettes (primary sky blue, dark grays), custom animations
+ * (fade-in, slide-in, float, drift effects), typography settings (Source Sans 3 font),
+ * and all visual styling used throughout the website components.
+ */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

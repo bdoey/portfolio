@@ -1,3 +1,12 @@
+/**
+ * Publications Component
+ *
+ * Purpose: Displays academic research publications in the modal.
+ * Controls: List of publication cards showing title, publication date and journal,
+ * author names, abstract summaries, and DOI links to view the full papers.
+ * Features decorative left border accent, icon animations on hover, and scroll-triggered
+ * entrance animations for each publication card with staggered timing.
+ */
 
 import React from 'react';
 import { motion } from 'framer-motion';

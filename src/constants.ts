@@ -1,3 +1,12 @@
+/**
+ * Portfolio Content Data
+ *
+ * Purpose: Centralized repository of all portfolio content and personal information.
+ * Controls: Skills lists organized by category, work experience with roles and achievements,
+ * education history, project portfolio with descriptions and tech stacks, and academic
+ * publications. Modifying this file updates the content displayed across Resume, Projects,
+ * and Publications sections of the website.
+ */
 
 import { SkillGroup, Experience, Education, Project, Publication } from './types';
 

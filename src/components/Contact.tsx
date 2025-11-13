@@ -1,3 +1,12 @@
+/**
+ * Contact Component
+ *
+ * Purpose: Displays contact information and social media links in the modal.
+ * Controls: Centered contact card with animated envelope icon, professional introduction text,
+ * prominent email button (brandon.doey@icloud.com), and social media links
+ * (LinkedIn, GitHub, Facebook, Twitter) with hover animations. Features spring-based
+ * entrance animations and interactive scale effects on all clickable elements.
+ */
 
 import React from 'react';
 import { motion } from 'framer-motion';

@@ -1,3 +1,10 @@
+/**
+ * React Application Entry Point
+ *
+ * Purpose: Bootstraps and renders the React application into the DOM.
+ * Controls: React 18's StrictMode wrapper, root element mounting, and imports
+ * global CSS styles. This is the first JavaScript file loaded by index.html.
+ */
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

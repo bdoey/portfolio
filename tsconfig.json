@@ -1,3 +1,11 @@
+/**
+ * TypeScript Configuration (Application)
+ *
+ * Purpose: Configures TypeScript compiler settings for the portfolio source code.
+ * Controls: Type checking strictness, ES2020 target for modern JavaScript features,
+ * React JSX transformation, module resolution, and code quality rules (no unused
+ * variables/parameters) for all TypeScript files in the src directory.
+ */
 
 {
   "compilerOptions": {
