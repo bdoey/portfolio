@@ -11,7 +11,7 @@ interface MainProps {
 
 const CloseButton = () => (
     <a href="#" className="absolute top-0 right-0 w-16 h-16 cursor-pointer group" aria-label="Close">
-      <div className="absolute top-3 left-3 w-10 h-10 rounded-full transition-colors duration-200 ease-in-out group-hover:bg-white/10">
+      <div className="absolute top-3 left-3 w-10 h-10 rounded-full transition-colors duration-150 ease-in-out group-hover:bg-white/10">
         <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -23,13 +23,13 @@ const Main: React.FC<MainProps> = ({ activeArticle, isVisible }) => {
     const articleClasses = `
         relative z-10
         w-[40rem] max-w-[95vw] bg-black/90 backdrop-blur-md rounded-lg shadow-2xl border border-white/10
-        transition-all duration-300 ease-in-out
+        transition-all duration-150 ease-in-out
         ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}
     `;
 
     const overlayClasses = `
         absolute inset-0 bg-transparent backdrop-blur-sm
-        transition-opacity duration-300 ease-in-out
+        transition-opacity duration-150 ease-in-out
         ${isVisible ? 'opacity-50' : 'opacity-0'}
     `;
 
