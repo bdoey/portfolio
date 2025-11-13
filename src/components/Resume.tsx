@@ -27,7 +27,7 @@ const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) 
             ref={ref}
             initial={{ opacity: 0, scale: 0 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.02 }}
+            transition={{ duration: 0.1, delay: index * 0.01 }}
             whileHover={{ scale: 1.1, y: -2 }}
             className="bg-slate-900/50 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-slate-500/30 hover:bg-slate-800/60 hover:border-slate-400/50 transition-all cursor-default"
         >
