@@ -12,7 +12,7 @@ const SocialLink: React.FC<{ href: string; icon: string; label: string; delay: n
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center w-9 h-9 border border-white rounded-full transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:border-slate-400 hover:shadow-lg hover:shadow-slate-400/50"
+      className="flex items-center justify-center w-9 h-9 border border-white rounded-full transition-all duration-150 hover:bg-white/10 hover:scale-110 hover:border-slate-400 hover:shadow-lg hover:shadow-slate-400/50"
       aria-label={label}
     >
       <i className={`fa-brands ${icon}`}></i>
@@ -24,10 +24,10 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, 
   <li className="border-l border-white first:border-l-0">
     <a
       href={href}
-      className="block px-5 h-11 leading-[2.75rem] text-xs uppercase tracking-[0.2rem] transition-all duration-300 hover:bg-white/10 hover:text-slate-400 relative group"
+      className="block px-5 h-11 leading-[2.75rem] text-xs uppercase tracking-[0.2rem] transition-all duration-150 hover:bg-white/10 hover:text-slate-400 relative group"
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-400 transition-all duration-300 group-hover:w-full"></span>
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-400 transition-all duration-150 group-hover:w-full"></span>
     </a>
   </li>
 );
