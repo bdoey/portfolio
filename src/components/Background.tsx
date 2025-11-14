@@ -1,185 +1,128 @@
 /**
- * Background Component
+ * Background Component (Simplified for Browser Compatibility)
  *
- * Purpose: Provides an immersive, animated 3D background with gradient mesh and parallax effects.
+ * Purpose: Provides an immersive, animated background with gradient effects and parallax.
  * Features:
- * - Animated gradient mesh using Three.js with smooth color transitions
+ * - Pure CSS animated gradients for maximum compatibility
+ * - Lightweight Canvas 2D particle system (no WebGL dependencies)
  * - Parallax scrolling effect that responds to page scroll position
  * - Noise texture overlay for visual depth and sophistication
+ * - Works reliably across all browsers (Chrome, Safari, Firefox, Edge)
  * - Performance optimized with requestAnimationFrame and proper cleanup
- * - Responsive design that adapts to viewport changes
  */
 
-import React, { useRef, useEffect, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import React, { useRef, useEffect } from 'react';
 
 /**
- * Animated gradient mesh sphere that morphs and changes colors
+ * Floating particle system using Canvas 2D API
  */
-const GradientMesh: React.FC = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
+const ParticleCanvas: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Custom shader material for animated gradient
-  const shaderMaterial = useMemo(() => {
-    return new THREE.ShaderMaterial({
-      uniforms: {
-        uTime: { value: 0 },
-        uColor1: { value: new THREE.Color('#0f172a') }, // slate-900
-        uColor2: { value: new THREE.Color('#1e293b') }, // slate-800
-        uColor3: { value: new THREE.Color('#334155') }, // slate-700
-        uColor4: { value: new THREE.Color('#06b6d4') }, // cyan-500
-        uColor5: { value: new THREE.Color('#14b8a6') }, // teal-500
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        varying vec3 vPosition;
-        uniform float uTime;
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-        // Smooth noise function for vertex displacement
-        vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-        vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-        vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
-        vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-        float snoise(vec3 v) {
-          const vec2 C = vec2(1.0/6.0, 1.0/3.0);
-          const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-          vec3 i  = floor(v + dot(v, C.yyy));
-          vec3 x0 = v - i + dot(i, C.xxx);
-          vec3 g = step(x0.yzx, x0.xyz);
-          vec3 l = 1.0 - g;
-          vec3 i1 = min(g.xyz, l.zxy);
-          vec3 i2 = max(g.xyz, l.zxy);
+    // Particle class
+    class Particle {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+      color: string;
 
-          vec3 x1 = x0 - i1 + C.xxx;
-          vec3 x2 = x0 - i2 + C.yyy;
-          vec3 x3 = x0 - D.yyy;
+      constructor(canvasWidth: number, canvasHeight: number) {
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.3 + 0.1;
 
-          i = mod289(i);
-          vec4 p = permute(permute(permute(
-                    i.z + vec4(0.0, i1.z, i2.z, 1.0))
-                  + i.y + vec4(0.0, i1.y, i2.y, 1.0))
-                  + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+        // Random color from our palette
+        const colors = ['#06b6d4', '#14b8a6', '#3b82f6', '#cbd5e1'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
 
-          float n_ = 0.142857142857;
-          vec3 ns = n_ * D.wyz - D.xzx;
+      update(canvasWidth: number, canvasHeight: number) {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-          vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+        // Wrap around edges
+        if (this.x > canvasWidth) this.x = 0;
+        if (this.x < 0) this.x = canvasWidth;
+        if (this.y > canvasHeight) this.y = 0;
+        if (this.y < 0) this.y = canvasHeight;
+      }
 
-          vec4 x_ = floor(j * ns.z);
-          vec4 y_ = floor(j - 7.0 * x_);
+      draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = this.color;
+        context.globalAlpha = this.opacity;
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fill();
+      }
+    }
 
-          vec4 x = x_ *ns.x + ns.yyyy;
-          vec4 y = y_ *ns.x + ns.yyyy;
-          vec4 h = 1.0 - abs(x) - abs(y);
+    // Create particles (fewer for better performance)
+    const particles: Particle[] = [];
+    const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 20000));
 
-          vec4 b0 = vec4(x.xy, y.xy);
-          vec4 b1 = vec4(x.zw, y.zw);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle(canvas.width, canvas.height));
+    }
 
-          vec4 s0 = floor(b0)*2.0 + 1.0;
-          vec4 s1 = floor(b1)*2.0 + 1.0;
-          vec4 sh = -step(h, vec4(0.0));
+    // Animation loop
+    let animationFrameId: number;
 
-          vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy;
-          vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww;
+    const animate = () => {
+      if (!canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-          vec3 p0 = vec3(a0.xy, h.x);
-          vec3 p1 = vec3(a0.zw, h.y);
-          vec3 p2 = vec3(a1.xy, h.z);
-          vec3 p3 = vec3(a1.zw, h.w);
+      particles.forEach(particle => {
+        particle.update(canvas.width, canvas.height);
+        particle.draw(ctx);
+      });
 
-          vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
-          p0 *= norm.x;
-          p1 *= norm.y;
-          p2 *= norm.z;
-          p3 *= norm.w;
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-          vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
-          m = m * m;
-          return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
-        }
+    animate();
 
-        void main() {
-          vUv = uv;
-          vPosition = position;
-
-          // Create organic movement with multiple noise octaves
-          vec3 pos = position;
-          float noise = snoise(pos * 0.5 + uTime * 0.1);
-          noise += snoise(pos * 1.0 + uTime * 0.15) * 0.5;
-
-          // Subtle vertex displacement for organic feel
-          pos += normal * noise * 0.3;
-
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform float uTime;
-        uniform vec3 uColor1;
-        uniform vec3 uColor2;
-        uniform vec3 uColor3;
-        uniform vec3 uColor4;
-        uniform vec3 uColor5;
-
-        varying vec2 vUv;
-        varying vec3 vPosition;
-
-        void main() {
-          // Create dynamic gradients based on position and time
-          float mixValue1 = sin(vPosition.y * 0.5 + uTime * 0.3) * 0.5 + 0.5;
-          float mixValue2 = cos(vPosition.x * 0.5 + uTime * 0.2) * 0.5 + 0.5;
-          float mixValue3 = sin(length(vPosition.xz) * 0.3 + uTime * 0.4) * 0.5 + 0.5;
-
-          // Mix base dark colors
-          vec3 color = mix(uColor1, uColor2, mixValue1);
-          color = mix(color, uColor3, mixValue2 * 0.3);
-
-          // Add accent color highlights
-          float accentMix = smoothstep(0.4, 0.6, mixValue3);
-          vec3 accentColor = mix(uColor4, uColor5, sin(uTime * 0.5) * 0.5 + 0.5);
-          color = mix(color, accentColor, accentMix * 0.15);
-
-          // Add subtle vignette effect
-          float vignette = 1.0 - length(vUv - 0.5) * 0.8;
-          color *= vignette;
-
-          gl_FragColor = vec4(color, 1.0);
-        }
-      `,
-      side: THREE.DoubleSide,
-    });
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
-  // Animate the mesh
-  useFrame((state) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-    }
-
-    if (meshRef.current) {
-      // Gentle rotation for dynamic feel
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.05;
-    }
-  });
-
   return (
-    <mesh ref={meshRef} material={shaderMaterial}>
-      <icosahedronGeometry args={[20, 64]} />
-      <primitive object={shaderMaterial} ref={materialRef} attach="material" />
-    </mesh>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full"
+      style={{ opacity: 0.4 }}
+    />
   );
 };
 
 /**
- * Main Background component with Canvas and noise overlay
+ * Main Background component with CSS gradients and effects
  */
 const Background: React.FC = () => {
-  const canvasRef = useRef<HTMLDivElement>(null);
+  const gradientRef = useRef<HTMLDivElement>(null);
   const noiseRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect
@@ -188,8 +131,8 @@ const Background: React.FC = () => {
       const scrollY = window.scrollY;
       const parallaxSpeed = 0.5;
 
-      if (canvasRef.current) {
-        canvasRef.current.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
+      if (gradientRef.current) {
+        gradientRef.current.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
       }
     };
 
@@ -226,19 +169,44 @@ const Background: React.FC = () => {
 
   return (
     <>
-      {/* Three.js Canvas with gradient mesh */}
+      {/* Animated CSS gradient background */}
       <div
-        ref={canvasRef}
+        ref={gradientRef}
         className="fixed inset-0 -z-20"
         style={{ willChange: 'transform' }}
       >
-        <Canvas
-          camera={{ position: [0, 0, 10], fov: 75 }}
-          dpr={[1, 2]} // Limit pixel ratio for performance
-          performance={{ min: 0.5 }} // Allow frame rate to drop if needed
-        >
-          <GradientMesh />
-        </Canvas>
+        {/* Base gradient layer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+
+        {/* Animated gradient mesh effect using multiple layers */}
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)
+            `,
+            animation: 'gradientShift 20s ease infinite',
+          }}
+        />
+
+        {/* Second animated layer for depth */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: `
+              radial-gradient(circle at 60% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 30% 60%, rgba(6, 182, 212, 0.06) 0%, transparent 40%)
+            `,
+            animation: 'gradientShift 15s ease-in-out infinite reverse',
+          }}
+        />
+
+        {/* Particle canvas layer */}
+        <div className="absolute inset-0">
+          <ParticleCanvas />
+        </div>
       </div>
 
       {/* Noise texture overlay for visual depth */}
@@ -252,7 +220,7 @@ const Background: React.FC = () => {
         }}
       />
 
-      {/* Subtle gradient overlay for depth */}
+      {/* Subtle vignette overlay for depth */}
       <div
         className="fixed inset-0 -z-10 pointer-events-none"
         style={{
