@@ -19,7 +19,7 @@ const Background: React.FC = () => {
     <>
       {/* Base black background with dot grid pattern */}
       <div
-        className="fixed inset-0 -z-20 bg-slate-950"
+        className="fixed inset-0 -z-20 bg-zinc-950"
         style={{
           backgroundImage: `
             radial-gradient(circle at center, rgba(148, 163, 184, 0.08) 1px, transparent 1px)
