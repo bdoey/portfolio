@@ -26,10 +26,10 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.0006, delay: index * 0.0002 }}
-            className="glass glass-hover rounded-lg p-6 mb-6 border relative overflow-hidden group"
+            className="card card-hover p-6 mb-6 border-accent-teal relative overflow-hidden group"
         >
             {/* Decorative element */}
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-slate-400 to-slate-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-top"></div>
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-teal-400 to-cyan-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-200 origin-top"></div>
 
             <div className="relative z-10 ml-4">
                 <motion.div
@@ -49,7 +49,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     </div>
                     <motion.div
                         whileHover={{ rotate: 15, scale: 1.1 }}
-                        className="text-slate-400 text-2xl"
+                        className="text-teal-400 text-2xl"
                     >
                         <i className="fas fa-book-open"></i>
                     </motion.div>
@@ -83,7 +83,7 @@ const PublicationCard: React.FC<{ pub: Publication; index: number }> = ({ pub, i
                     transition={{ delay: index * 0.0002 + 0.0005 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-slate-500/50 rounded-md bg-slate-500/10 hover:bg-slate-600 hover:border-slate-600 text-slate-300 hover:text-white transition-all shadow-lg shadow-slate-500/0 hover:shadow-slate-600/50"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold border border-teal-600/50 rounded-md bg-teal-600/10 hover:bg-teal-600/30 hover:border-teal-500 text-teal-300 hover:text-teal-200 transition-all shadow-lg shadow-teal-500/0 hover:shadow-teal-500/30"
                 >
                     <i className="fas fa-external-link-alt"></i>
                     View Publication

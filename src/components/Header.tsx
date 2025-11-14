@@ -23,7 +23,7 @@ const SocialLink: React.FC<{ href: string; icon: string; label: string; delay: n
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center w-9 h-9 border border-white rounded-full transition-all duration-150 hover:bg-white/10 hover:scale-110 hover:border-slate-400 hover:shadow-lg hover:shadow-slate-400/50"
+      className="flex items-center justify-center w-9 h-9 border border-dark-600 rounded-full transition-all duration-200 hover:bg-cyan-600/20 hover:scale-110 hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/30"
       aria-label={label}
     >
       <i className={`fa-brands ${icon}`}></i>
@@ -35,10 +35,10 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, 
   <li className="border-l border-white first:border-l-0">
     <a
       href={href}
-      className="block px-5 h-11 leading-[2.75rem] text-sm tracking-wide transition-all duration-150 hover:bg-white/10 hover:text-slate-400 relative group"
+      className="block px-5 h-11 leading-[2.75rem] text-sm tracking-wide transition-all duration-200 hover:bg-cyan-600/20 hover:text-cyan-300 relative group"
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-400 transition-all duration-150 group-hover:w-full"></span>
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 transition-all duration-200 group-hover:w-full"></span>
     </a>
   </li>
 );
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <motion.div
-            className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-slate-400/50 shadow-xl shadow-slate-400/30"
+            className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-500/50 shadow-xl shadow-cyan-500/30"
             whileHover={{ scale: 1.05, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
               alt="Brandon Doey"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-600/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/20"></div>
           </motion.div>
         </motion.div>
 
@@ -149,7 +149,7 @@ const Header: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.09 }}
         >
-          <ul className="inline-flex glass rounded-md overflow-hidden shadow-lg">
+          <ul className="inline-flex surface-elevated overflow-hidden">
             <NavLink href="#resume">Resume</NavLink>
             <NavLink href="#publications">Publications</NavLink>
             <NavLink href="#projects">Projects</NavLink>

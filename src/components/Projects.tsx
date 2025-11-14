@@ -26,7 +26,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative glass glass-hover rounded-lg overflow-hidden border"
+            className="group relative card card-hover border-accent-blue overflow-hidden"
         >
             <a
                 href={project.link}
@@ -38,14 +38,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                     <motion.img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-150 group-hover:scale-110"
+                        className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-110"
                         loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-150"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-200"></div>
 
                     {/* Hover overlay with icon */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                        <div className="bg-slate-600/90 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-150">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <div className="bg-gradient-to-br from-cyan-600 to-blue-600 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-200 shadow-lg shadow-cyan-500/50">
                             <i className="fas fa-external-link-alt text-white text-xl"></i>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                                     transition={{ duration: 0.3, delay: index * 0.1 + i * 0.05 }}
-                                    className="px-2 py-1 text-xs bg-slate-500/20 text-slate-300 rounded border border-slate-500/30 hover:bg-slate-500/30 transition-colors"
+                                    className="px-2 py-1 text-xs bg-blue-600/10 text-blue-300 rounded border border-blue-600/30 hover:bg-blue-600/20 hover:border-blue-500/50 transition-colors"
                                 >
                                     {tech}
                                 </motion.span>
@@ -113,10 +113,10 @@ const Projects: React.FC = () => {
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`px-4 py-2 text-sm rounded-lg transition-all duration-150 font-medium ${
+                        className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 font-medium ${
                             activeCategory === category
-                                ? 'bg-slate-600 text-white shadow-lg shadow-slate-600/50'
-                                : 'glass glass-hover text-white/80 hover:text-white'
+                                ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/30'
+                                : 'bg-dark-800/80 border border-dark-700 text-white/80 hover:text-white hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20'
                         }`}
                     >
                         {category}
