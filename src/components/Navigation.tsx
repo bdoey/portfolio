@@ -55,7 +55,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
       style={{ opacity: isScrolled ? opacity : 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-900/95 backdrop-blur-md border-b border-dark-700 shadow-lg'
+          ? 'bg-zinc-900/95 backdrop-blur-md border-b border-dark-700 shadow-lg'
           : 'pointer-events-none'
       }`}
     >
