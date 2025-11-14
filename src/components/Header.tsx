@@ -1,11 +1,10 @@
 /**
  * Header Component
  *
- * Purpose: Main header section displayed on the portfolio home page.
+ * Purpose: Hero section displayed at the top of the single-page portfolio.
  * Controls: Profile photo with animation effects, name display with gradient styling,
  * rotating job title animation (Senior Data Scientist, ML Engineer, Independent Researcher),
- * professional summary/bio text, social media links (LinkedIn, GitHub, Facebook, Twitter),
- * and primary navigation menu to Resume, Publications, and Projects sections.
+ * professional summary/bio text, and social media links (LinkedIn, GitHub, Facebook, Twitter).
  * All elements feature staggered entrance animations using Framer Motion.
  */
 
@@ -31,40 +30,9 @@ const SocialLink: React.FC<{ href: string; icon: string; label: string; delay: n
   </motion.li>
 );
 
-const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
-  <li className="border-l border-white first:border-l-0">
-    <a
-      href={href}
-      className="block px-5 h-11 leading-[2.75rem] text-sm tracking-wide transition-all duration-200 hover:bg-cyan-600/20 hover:text-cyan-300 relative group"
-    >
-      {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 transition-all duration-200 group-hover:w-full"></span>
-    </a>
-  </li>
-);
-
 const Header: React.FC = () => {
   return (
     <header className="relative flex flex-col items-center text-center w-full p-4 bg-transparent">
-      
-      {/* REPLACEMENT BACKGROUND:
-        Removed the purple gradients and floating orbs.
-        Replaced with a single, subtle, and professional animated gradient
-        that uses dark, tech-friendly grayscale colors (slate).
-        It re-uses your existing 'animate-gradient' animation class.
-      */}        
-      
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] pointer-events-none -z-10"></div>
-
-
-      {/* --- ALTERNATIVE PROFESSIONAL BACKGROUND (Static Dot Grid) ---
-        If you want a static (non-animated) background that feels very 'data' and 'tech',
-        delete the 'div' above (line 55) and uncomment this one. This creates a clean, dark slate background with a subtle dot grid.
-
-      
-      <div className="fixed inset-0 -z-10 h-full w-full bg-slate-900 bg-[radial-gradient(#cbd5e133_1px,transparent_1px)] [background-size:16px_16px]"></div>
-      */}      
-
       <div className="relative z-10 w-full bg-transparent">
         {/* Profile Image with animation */}
         <motion.div
@@ -95,16 +63,16 @@ const Header: React.FC = () => {
           transition={{ duration: 0.3, delay: 0.05 }}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-gradient"
+            className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight text-gradient"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.08 }}
           >
-            <a href="#contact" className="hover:text-slate-300 transition-colors">Brandon Doey</a>
+            Brandon Doey
           </motion.h1>
 
           <motion.div
-            className="mt-4 text-base tracking-wide font-medium text-slate-300 min-h-[1.5rem]"
+            className="mt-6 text-lg sm:text-xl tracking-wide font-medium text-slate-300 min-h-[1.5rem]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.09 }}
@@ -125,7 +93,7 @@ const Header: React.FC = () => {
           </motion.div>
 
           <motion.p
-            className="mt-4 text-sm max-w-2xl mx-auto text-white/80 leading-relaxed"
+            className="mt-6 text-base max-w-2xl mx-auto text-white/80 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.09 }}
@@ -134,27 +102,28 @@ const Header: React.FC = () => {
           </motion.p>
 
           {/* Social Links */}
-          <ul className="flex justify-center space-x-3 mt-6">
+          <ul className="flex justify-center space-x-3 mt-8">
             <SocialLink href="https://www.linkedin.com/in/bdoey" icon="fa-linkedin" label="LinkedIn" delay={0.09} />
             <SocialLink href="https://github.com/bdoey" icon="fa-github" label="GitHub" delay={0.09} />
             <SocialLink href="https://www.facebook.com/bdoey" icon="fa-facebook-f" label="Facebook" delay={0.09} />
             <SocialLink href="https://twitter.com/bdoey" icon="fa-twitter" label="Twitter" delay={0.09} />
           </ul>
-        </motion.div>
 
-        {/* Navigation */}
-        <motion.nav
-          className="mt-8 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.09 }}
-        >
-          <ul className="inline-flex surface-elevated overflow-hidden">
-            <NavLink href="#resume">Resume</NavLink>
-            <NavLink href="#publications">Publications</NavLink>
-            <NavLink href="#projects">Projects</NavLink>
-          </ul>
-        </motion.nav>
+          {/* Scroll indicator */}
+          <motion.div
+            className="mt-12"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.5,
+              duration: 0.5,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          >
+            <i className="fas fa-chevron-down text-cyan-400 text-2xl"></i>
+          </motion.div>
+        </motion.div>
       </div>
     </header>
   );
