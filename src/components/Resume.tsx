@@ -38,8 +38,8 @@ const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) 
             initial={{ opacity: 0, scale: 0 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.0001, delay: index * 0.00001 }}
-            whileHover={{ scale: 1.0001, y: -2 }}
-            className="bg-slate-900/50 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-slate-500/30 hover:bg-slate-800/60 hover:border-slate-400/50 transition-all cursor-default"
+            whileHover={{ scale: 1.05, y: -2 }}
+            className="bg-dark-800/90 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20 transition-all cursor-default"
         >
             {name}
         </motion.span>
@@ -68,7 +68,7 @@ const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, ind
                 className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-slate-500 border-2 border-[#1b1f22] shadow-lg shadow-slate-500/50"
             />
 
-            <div className="glass glass-hover rounded-lg p-5 border">
+            <div className="card card-hover border-accent-cyan p-5">
                 <h4 className="font-bold text-lg text-slate-300">{exp.role}</h4>
                 <p className="text-white/70 text-sm mt-1">
                     <span className="font-semibold">{exp.company}</span>
@@ -106,13 +106,13 @@ const EducationCard: React.FC<{ edu: EducationType; index: number }> = ({ edu, i
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.005, delay: index * 0.001 }}
-            className="glass glass-hover rounded-lg p-5 border"
+            className="card card-hover border-accent-blue p-5"
         >
             <div className="flex items-start">
                 <motion.div
                     initial={{ rotate: 0 }}
                     whileHover={{ rotate: 15 }}
-                    className="text-slate-400 text-2xl mr-4 mt-1"
+                    className="text-cyan-400 text-2xl mr-4 mt-1"
                 >
                     <i className="fas fa-graduation-cap"></i>
                 </motion.div>
