@@ -1,68 +1,109 @@
 /**
  * Root Application Component
  *
- * Purpose: Main orchestrator component that manages the portfolio website's routing and layout.
- * Controls: Hash-based navigation between sections (resume, projects, publications, contact),
- * modal visibility state, background image with blur effects, page transitions and animations,
- * and the overall layout structure combining Header, Footer, and Main modal components.
+ * Purpose: Main orchestrator component for the portfolio website with single-page scroll design.
+ * Controls: Active section tracking via intersection observer, smooth scroll behavior,
+ * sticky navigation, and orchestrates the layout of all portfolio sections in a continuous
+ * scroll experience with animated gradient background.
  */
 
 import React, { useState, useEffect } from 'react';
+import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Main from './components/Main';
+import ScrollSection from './components/ScrollSection';
+import Resume from './components/Resume';
+import Projects from './components/Projects';
+import Publications from './components/Publications';
+import Contact from './components/Contact';
 
 const App: React.FC = () => {
-  const [isArticleVisible, setArticleVisible] = useState(false);
-  const [activeArticle, setActiveArticle] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState('home');
   const [isPreloading, setIsPreloading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsPreloading(false), 100);
-
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        setActiveArticle(hash);
-        setArticleVisible(true);
-      } else {
-        setArticleVisible(false);
-        // Delay hiding the article to allow for outro animation
-        setTimeout(() => setActiveArticle(null), 325);
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange(); // Initial check
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('hashchange', handleHashChange);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  const bgClasses = `
-    fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-150 ease-in-out
-    ${isArticleVisible ? 'scale-105 blur-sm' : 'scale-100 blur-0'}
-  `;
+  const handleSectionVisible = (sectionId: string) => {
+    setActiveSection(sectionId);
+  };
 
   return (
     <div className={`min-h-screen text-white font-light leading-relaxed ${isPreloading ? 'opacity-0' : 'opacity-100 transition-opacity duration-150'}`}>
-      <div 
-        className={bgClasses} 
-        style={{ backgroundImage: "url('https://raw.githubusercontent.com/bdoey/portfolio/refs/heads/main/black2-bg.jpeg')" }}
+      {/* Animated gradient background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] -z-10" />
+
+      {/* Sticky Navigation */}
+      <Navigation activeSection={activeSection} />
+
+      {/* Hero Section */}
+      <ScrollSection
+        id="home"
+        onVisible={handleSectionVisible}
+        fullHeight
+        className="flex flex-col items-center justify-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/50"></div>
-      </div>
-
-      <div className={`relative z-10 flex flex-col items-center justify-between min-h-screen p-4 sm:p-8 md:p-12 transition-opacity duration-150 ease-in-out ${isArticleVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <div /> 
         <Header />
-        <Footer />
-      </div>
-      
-      {activeArticle && <Main activeArticle={activeArticle} isVisible={isArticleVisible} />}
+      </ScrollSection>
 
+      {/* Resume Section */}
+      <ScrollSection
+        id="resume"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Resume />
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Projects Section */}
+      <ScrollSection
+        id="projects"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Projects />
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Publications Section */}
+      <ScrollSection
+        id="publications"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Publications />
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Contact Section */}
+      <ScrollSection
+        id="contact"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Contact />
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-dark-700">
+        <Footer />
+      </footer>
     </div>
   );
 };
