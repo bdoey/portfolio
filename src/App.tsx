@@ -4,7 +4,7 @@
  * Purpose: Main orchestrator component for the portfolio website with single-page scroll design.
  * Controls: Active section tracking via intersection observer, smooth scroll behavior,
  * sticky navigation, and orchestrates the layout of all portfolio sections in a continuous
- * scroll experience with animated gradient background.
+ * scroll experience with Three.js animated gradient mesh background, noise textures, and parallax effects.
  */
 
 import React, { useState, useEffect } from 'react';
@@ -16,6 +16,7 @@ import Resume from './components/Resume';
 import Projects from './components/Projects';
 import Publications from './components/Publications';
 import Contact from './components/Contact';
+import Background from './components/Background';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -32,8 +33,8 @@ const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen text-white font-light leading-relaxed ${isPreloading ? 'opacity-0' : 'opacity-100 transition-opacity duration-150'}`}>
-      {/* Animated gradient background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-950/20 to-slate-900 animate-gradient bg-[length:200%_200%] -z-10" />
+      {/* Three.js animated background with gradient mesh and parallax effects */}
+      <Background />
 
       {/* Sticky Navigation */}
       <Navigation activeSection={activeSection} />
