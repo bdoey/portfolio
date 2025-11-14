@@ -32,7 +32,7 @@ const CloseButton = () => (
 const Main: React.FC<MainProps> = ({ activeArticle, isVisible }) => {
     const articleClasses = `
         relative z-10
-        w-[40rem] max-w-[95vw] bg-dark-900/95 rounded-lg border border-dark-700 shadow-2xl
+        w-[40rem] max-w-[95vw] bg-zinc-900/95 rounded-lg border border-dark-700 shadow-2xl
         transition-all duration-200 ease-in-out
         ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}
     `;
