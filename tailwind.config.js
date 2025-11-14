@@ -43,15 +43,16 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Source Sans 3"', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in',
-        'fade-in-up': 'fadeInUp 0.6s ease-out',
-        'fade-in-down': 'fadeInDown 0.6s ease-out',
-        'slide-in-left': 'slideInLeft 0.6s ease-out',
-        'slide-in-right': 'slideInRight 0.6s ease-out',
-        'scale-in': 'scaleIn 0.4s ease-out',
+        'fade-in': 'fadeIn 0.2s ease-in',
+        'fade-in-up': 'fadeInUp 0.3s ease-out',
+        'fade-in-down': 'fadeInDown 0.3s ease-out',
+        'slide-in-left': 'slideInLeft 0.3s ease-out',
+        'slide-in-right': 'slideInRight 0.3s ease-out',
+        'scale-in': 'scaleIn 0.2s ease-out',
         'bounce-slow': 'bounce 3s infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gradient': 'gradient 15s ease infinite',

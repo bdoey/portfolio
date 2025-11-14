@@ -2,22 +2,67 @@
  * Global Styles and Tailwind CSS
  *
  * Purpose: Defines global CSS styles, Tailwind directives, and custom utility classes.
- * Controls: Base HTML styling (font size, font family "Source Sans 3", smooth scrolling),
+ * Controls: Base HTML styling with modern fluid typography, Inter and JetBrains Mono fonts,
  * custom scrollbar appearance, accessibility features (prefers-reduced-motion support),
- * reusable utility classes (.text-gradient, .glass, .scrollbar-thin), and performance
- * optimizations for animated elements throughout the portfolio website.
+ * reusable utility classes (.text-gradient, .glass, .scrollbar-thin), CSS variables for theming,
+ * and performance optimizations for animated elements throughout the portfolio website.
  */
+
+@import '@fontsource/inter';
+@import '@fontsource/jetbrains-mono';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Color variables for theming */
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-bg-tertiary: #334155;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cbd5e1;
+    --color-text-tertiary: #94a3b8;
+
+    --color-accent-cyan: #06b6d4;
+    --color-accent-teal: #14b8a6;
+    --color-accent-blue: #0ea5e9;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-hover: rgba(255, 255, 255, 0.2);
+
+    /* Typography scale with fluid sizing */
+    --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+    --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.875rem);
+    --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+    --font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 3rem);
+    --font-size-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
+
+    /* Spacing variables */
+    --spacing-unit: 0.25rem;
+
+    /* Animation timing */
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 350ms;
+
+    /* Shadow variables */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
   html {
-    font-size: 25px;
-    font-family: 'Source Sans 3', sans-serif;
+    /* Modern base font size with fluid scaling */
+    font-size: clamp(16px, 1vw + 14px, 18px);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -27,8 +72,8 @@
   body {
     margin: 0;
     padding: 0;
-    background: #1b1f22;
-    color: white;
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
   }
 
   * {
