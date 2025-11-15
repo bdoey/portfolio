@@ -12,6 +12,7 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollSection from './components/ScrollSection';
+import Skills from './components/Skills';
 import Resume from './components/Resume';
 import Projects from './components/Projects';
 import Publications from './components/Publications';
@@ -49,28 +50,15 @@ const App: React.FC = () => {
         <Header />
       </ScrollSection>
 
-      {/* Resume Section */}
+      {/* Skills Section */}
       <ScrollSection
-        id="resume"
+        id="skills"
         onVisible={handleSectionVisible}
         className="py-20 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-5xl mx-auto">
           <div className="surface-elevated p-8 sm:p-12">
-            <Resume />
-          </div>
-        </div>
-      </ScrollSection>
-
-      {/* Projects Section */}
-      <ScrollSection
-        id="projects"
-        onVisible={handleSectionVisible}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="surface-elevated p-8 sm:p-12">
-            <Projects />
+            <Skills />
           </div>
         </div>
       </ScrollSection>
@@ -79,7 +67,7 @@ const App: React.FC = () => {
       <ScrollSection
         id="publications"
         onVisible={handleSectionVisible}
-        className="py-20 px-4 sm:px-6 lg:px-8"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
       >
         <div className="max-w-5xl mx-auto">
           <div className="surface-elevated p-8 sm:p-12">
@@ -88,11 +76,37 @@ const App: React.FC = () => {
         </div>
       </ScrollSection>
 
+      {/* Projects Section */}
+      <ScrollSection
+        id="projects"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Projects />
+          </div>
+        </div>
+      </ScrollSection>
+
+      {/* Resume Section */}
+      <ScrollSection
+        id="resume"
+        onVisible={handleSectionVisible}
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
+      >
+        <div className="max-w-5xl mx-auto">
+          <div className="surface-elevated p-8 sm:p-12">
+            <Resume />
+          </div>
+        </div>
+      </ScrollSection>
+
       {/* Contact Section */}
       <ScrollSection
         id="contact"
         onVisible={handleSectionVisible}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-900/30 to-transparent"
+        className="py-20 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-5xl mx-auto">
           <div className="surface-elevated p-8 sm:p-12">
