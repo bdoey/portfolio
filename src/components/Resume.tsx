@@ -1,9 +1,8 @@
 /**
  * Resume Component
  *
- * Purpose: Displays comprehensive professional resume information in the modal.
- * Controls: Three main sections - Core Competencies (technical skills organized by category
- * with animated badge chips), Professional Experience (timeline view with company, role,
+ * Purpose: Displays professional resume information including experience and education.
+ * Controls: Two main sections - Professional Experience (timeline view with company, role,
  * duration, and achievement bullets), and Education (degree information with university
  * and concentration details). Features scroll-triggered animations using Intersection
  * Observer and staggered entrance effects for each item.
@@ -12,8 +11,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { SKILLS, EXPERIENCE, EDUCATION } from '../constants';
-import { SkillGroup, Experience, Education as EducationType } from '../types';
+import { EXPERIENCE, EDUCATION } from '../constants';
+import { Experience, Education as EducationType } from '../types';
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <motion.h3
@@ -25,26 +24,6 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
         {children}
     </motion.h3>
 );
-
-const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-
-    return (
-        <motion.span
-            ref={ref}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.0001, delay: index * 0.00001 }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            className="bg-dark-800/90 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20 transition-all cursor-default"
-        >
-            {name}
-        </motion.span>
-    );
-};
 
 const ExperienceCard: React.FC<{ exp: Experience; index: number }> = ({ exp, index }) => {
     const [ref, inView] = useInView({
@@ -138,26 +117,6 @@ const Resume: React.FC = () => {
             >
                 Resume
             </motion.h2>
-
-            <SectionTitle>Core Competencies & Technical Skills</SectionTitle>
-            <div className="space-y-6">
-                {SKILLS.map((group: SkillGroup, groupIndex) => (
-                    <motion.div
-                        key={group.category}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: groupIndex * 0.01 }}
-                    >
-                        <h4 className="font-bold text-slate-300 mb-3 text-base">{group.category}</h4>
-                        <div className="flex flex-wrap gap-2">
-                            {group.skills.map((skill, index) => (
-                                <SkillBadge key={skill.name} name={skill.name} index={index} />
-                            ))}
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
 
             <SectionTitle>Professional Experience</SectionTitle>
             <div className="mt-6">
