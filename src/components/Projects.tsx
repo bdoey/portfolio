@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="grid grid-cols-1 gap-6"
                 >
                     {filteredProjects.map((project, index) => (
                         <ProjectCard key={project.title} project={project} index={index} />
