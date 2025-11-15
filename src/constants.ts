@@ -21,11 +21,11 @@ export const SKILLS: SkillGroup[] = [
     },
     {
         category: 'Generative & Agentic AI',
-        skills: [{name: 'LLM Fine-Tuning (Axolotl/Unsloth)'}, {name: 'Retrieval Augmented Generation (RAG)'}, {name: 'Agentic Architectures (PydanticAI/CrewAI)'}, {name: 'Hugging Face Transformers'}, {name: 'Vector Databases (Chroma/Weaviate)'}, {name: 'Ollama'}, {name: 'LangChain'}]
+        skills: [{name: 'Unsloth'}, {name: 'PydanticAI)'}, {name: 'CrewAI)'}, {name: 'Hugging Face Transformers'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
     },
     {
         category: 'MLOps & Business Intelligence',
-        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'Apache Airflow'}, {name: 'REST APIs'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
+        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'Apache Airflow'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
     }
 ];
 
