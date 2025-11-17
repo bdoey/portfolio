@@ -12,11 +12,11 @@ import { SkillGroup, Experience, Education, Project, Publication } from './types
 
 export const SKILLS: SkillGroup[] = [
     {
-        category: 'Languages',
+        category: 'Languages & Modeling',
         skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'TypeScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}, {name: 'Supervised Learning'}, {name: 'Unsupervised Learning'}, {name: 'Deep Neural Networks'}, {name: 'Recurrent Neural Networks'}, {name: 'Retrieval-Augmented Generation'}, {name: 'Natural Language Processing'}, {name: 'Sentiment Analysis'}, {name: 'Quantitative Modeling'}]
     },
     {
-        category: 'AI / ML Frameworks',
+        category: 'AI & ML Frameworks',
         skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
     },
     {
