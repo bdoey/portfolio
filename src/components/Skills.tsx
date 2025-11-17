@@ -15,20 +15,20 @@ import { SkillGroup, SkillCategory } from '../types';
 
 // Category icon mapping
 const categoryIcons: Record<SkillCategory, string> = {
-    'Languages': 'fas fa-code',
-    'AI / ML Frameworks': 'fas fa-brain',
+    'Languages & Modeling': 'fas fa-code',
+    'AI & ML Frameworks': 'fas fa-brain',
     'Generative & Agentic AI': 'fas fa-robot',
     'MLOps & Business Intelligence': 'fas fa-chart-line'
 };
 
 // Category color mapping for gradient accents
 const categoryColors: Record<SkillCategory, { border: string; glow: string; icon: string }> = {
-    'Languages': {
+    'Languages & Modeling': {
         border: 'border-blue-500/30',
         glow: 'shadow-blue-500/10',
         icon: 'text-blue-400'
     },
-    'AI / ML Frameworks': {
+    'AI & ML Frameworks': {
         border: 'border-purple-500/30',
         glow: 'shadow-purple-500/10',
         icon: 'text-purple-400'

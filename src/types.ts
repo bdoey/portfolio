@@ -7,7 +7,7 @@
  * data shapes across all components and prevent runtime errors.
  */
 
-export type SkillCategory = 'Languages' | 'AI / ML Frameworks' | 'Generative & Agentic AI' | 'MLOps & Business Intelligence';
+export type SkillCategory = 'Languages & Modeling' | 'AI & ML Frameworks' | 'Generative & Agentic AI' | 'MLOps & Business Intelligence';
 
 export interface Skill {
   name: string;
