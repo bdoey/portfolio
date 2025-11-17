@@ -13,19 +13,84 @@ import { SkillGroup, Experience, Education, Project, Publication } from './types
 export const SKILLS: SkillGroup[] = [
     {
         category: 'Languages & Modeling',
-        skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'TypeScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}, {name: 'Supervised Learning'}, {name: 'Unsupervised Learning'}, {name: 'Deep Neural Networks'}, {name: 'Recurrent Neural Networks'}, {name: 'Retrieval-Augmented Generation'}, {name: 'Natural Language Processing'}, {name: 'Sentiment Analysis'}, {name: 'Quantitative Modeling'}]
+        skills: [
+            {name: 'Python', icon: 'fab fa-python'},
+            {name: 'R', icon: 'fab fa-r-project'},
+            {name: 'SQL', icon: 'fas fa-database'},
+            {name: 'JavaScript', icon: 'fab fa-js'},
+            {name: 'TypeScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'},
+            {name: 'Go', icon: 'fab fa-golang'},
+            {name: 'Rust', icon: 'fab fa-rust'},
+            {name: 'Solidity', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg'},
+            {name: 'Supervised Learning', icon: 'fas fa-project-diagram'},
+            {name: 'Unsupervised Learning', icon: 'fas fa-network-wired'},
+            {name: 'Deep Neural Networks', icon: 'fas fa-brain'},
+            {name: 'Recurrent Neural Networks', icon: 'fas fa-circle-nodes'},
+            {name: 'Retrieval-Augmented Generation', icon: 'fas fa-magnifying-glass'},
+            {name: 'Natural Language Processing', icon: 'fas fa-language'},
+            {name: 'Sentiment Analysis', icon: 'fas fa-face-smile'},
+            {name: 'Quantitative Modeling', icon: 'fas fa-chart-line'}
+        ]
     },
     {
         category: 'AI & ML Frameworks',
-        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'NumPy'}, {name: 'Pandas'}, {name: 'Polars'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
+        skills: [
+            {name: 'PyTorch', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg'},
+            {name: 'TensorFlow', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg'},
+            {name: 'Keras', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg'},
+            {name: 'NumPy', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg'},
+            {name: 'Pandas', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg'},
+            {name: 'Polars', icon: 'fas fa-table'},
+            {name: 'Scikit-learn', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg'},
+            {name: 'XGBoost', icon: 'fas fa-tree'},
+            {name: 'LightGBM', icon: 'fas fa-bolt'},
+            {name: 'CatBoost', icon: 'fas fa-cat'},
+            {name: 'BERT', icon: 'fas fa-book'},
+            {name: 'SpaCy', icon: 'fas fa-spell-check'},
+            {name: 'NeuralProphet', icon: 'fas fa-chart-area'},
+            {name: 'Optuna', icon: 'fas fa-sliders'},
+            {name: 'MLX', icon: 'fas fa-microchip'},
+            {name: 'CUDA', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg'}
+        ]
     },
     {
         category: 'Generative & Agentic AI',
-        skills: [{name: 'AutoGen'}, {name: 'PydanticAI'}, {name: 'CrewAI'}, {name: 'Haystack'}, {name: 'Hugging Face Transformers'}, {name: 'Smolagents'}, {name: 'Unsloth'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
+        skills: [
+            {name: 'AutoGen', icon: 'fas fa-robot'},
+            {name: 'PydanticAI', icon: 'fas fa-code-branch'},
+            {name: 'CrewAI', icon: 'fas fa-users'},
+            {name: 'Haystack', icon: 'fas fa-layer-group'},
+            {name: 'Hugging Face Transformers', icon: 'fas fa-face-grin-hearts'},
+            {name: 'Smolagents', icon: 'fas fa-user-secret'},
+            {name: 'Unsloth', icon: 'fas fa-rocket'},
+            {name: 'Chroma', icon: 'fas fa-palette'},
+            {name: 'Weaviate', icon: 'fas fa-cubes'},
+            {name: 'Ollama', icon: 'fas fa-server'},
+            {name: 'LM Studio', icon: 'fas fa-laptop-code'},
+            {name: 'vLLM', icon: 'fas fa-gauge-high'},
+            {name: 'LangChain', icon: 'fas fa-link'}
+        ]
     },
     {
         category: 'MLOps & Business Intelligence',
-        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Apache Airflow'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'ServiceNow'}, {name: 'Smartsheet'}, {name: 'Collibra'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker Studio'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
+        skills: [
+            {name: 'Google Cloud Platform (GCP)', icon: 'fab fa-google'},
+            {name: 'VertexAI', icon: 'fab fa-google'},
+            {name: 'BigQuery', icon: 'fas fa-database'},
+            {name: 'Apache Airflow', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg'},
+            {name: 'Kubernetes', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg'},
+            {name: 'Docker', icon: 'fab fa-docker'},
+            {name: 'ServiceNow', icon: 'fas fa-ticket'},
+            {name: 'Smartsheet', icon: 'fas fa-table-cells'},
+            {name: 'Collibra', icon: 'fas fa-folder-tree'},
+            {name: 'Teradata', icon: 'fas fa-database'},
+            {name: 'MLflow', icon: 'fas fa-flask'},
+            {name: 'WandB', icon: 'fas fa-wand-magic-sparkles'},
+            {name: 'Jenkins CI/CD', icon: 'fab fa-jenkins'},
+            {name: 'Looker Studio', icon: 'fas fa-chart-pie'},
+            {name: 'Qlik Sense', icon: 'fas fa-chart-bar'},
+            {name: 'Tableau', icon: 'fas fa-chart-column'}
+        ]
     }
 ];
 

@@ -11,6 +11,8 @@ export type SkillCategory = 'Languages & Modeling' | 'AI & ML Frameworks' | 'Gen
 
 export interface Skill {
   name: string;
+  icon?: string;     // Font Awesome icon class (e.g., 'fab fa-python')
+  iconUrl?: string;  // URL to image file (png, jpeg, etc.) - used if icon is not provided
 }
 
 export interface SkillGroup {

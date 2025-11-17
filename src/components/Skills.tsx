@@ -45,7 +45,7 @@ const categoryColors: Record<SkillCategory, { border: string; glow: string; icon
     }
 };
 
-const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) => {
+const SkillBadge: React.FC<{ name: string; icon?: string; iconUrl?: string; index: number }> = ({ name, icon, iconUrl, index }) => {
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -58,8 +58,19 @@ const SkillBadge: React.FC<{ name: string; index: number }> = ({ name, index }) 
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.0001, delay: index * 0.00001 }}
             whileHover={{ scale: 1.05, y: -2 }}
-            className="bg-dark-800/90 text-slate-200 text-xs font-medium px-3 py-1 rounded-full border border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20 transition-all cursor-default"
+            className="bg-dark-800/90 text-slate-200 text-sm font-medium px-3 py-2 rounded-full border border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20 transition-all cursor-default inline-flex items-center gap-2"
         >
+            {icon && (
+                <i className={`${icon} text-cyan-400`} style={{ fontSize: '1rem' }}></i>
+            )}
+            {!icon && iconUrl && (
+                <img
+                    src={iconUrl}
+                    alt={`${name} icon`}
+                    className="w-4 h-4 object-contain"
+                    style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(40%) saturate(697%) hue-rotate(154deg) brightness(95%) contrast(93%)' }}
+                />
+            )}
             {name}
         </motion.span>
     );
@@ -113,7 +124,13 @@ const SkillCategoryCard: React.FC<{ group: SkillGroup; groupIndex: number }> = (
             {/* Skills grid */}
             <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill, index) => (
-                    <SkillBadge key={skill.name} name={skill.name} index={index} />
+                    <SkillBadge
+                        key={skill.name}
+                        name={skill.name}
+                        icon={skill.icon}
+                        iconUrl={skill.iconUrl}
+                        index={index}
+                    />
                 ))}
             </div>
 
