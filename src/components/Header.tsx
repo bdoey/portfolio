@@ -106,7 +106,7 @@ const Header: React.FC = () => {
             <SocialLink href="https://www.linkedin.com/in/bdoey" icon="fa-linkedin" label="LinkedIn" delay={0.09} />
             <SocialLink href="https://github.com/bdoey" icon="fa-github" label="GitHub" delay={0.09} />
             <SocialLink href="https://www.facebook.com/bdoey" icon="fa-facebook-f" label="Facebook" delay={0.09} />
-            <SocialLink href="https://twitter.com/bdoey" icon="fa-twitter" label="Twitter" delay={0.09} />
+            <SocialLink href="https://x.com/bdoey" icon="fa-square-x-twitter" label="X" delay={0.09} />
           </ul>
 
           {/* Resume Download Button */}
