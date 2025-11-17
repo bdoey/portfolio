@@ -117,8 +117,8 @@ const Header: React.FC = () => {
             transition={{ duration: 0.3, delay: 0.12 }}
           >
             <a
-              href="/Brandon Doey CV.pdf"
-              download="Brandon Doey CV.pdf"
+              href="/Brandon Doey CV - 2025v2.pdf"
+              download="Brandon Doey CV - 2025v2.pdf"
               className="group flex items-center gap-2 px-6 py-3 border border-cyan-500/50 rounded-full transition-all duration-200 hover:bg-cyan-600/20 hover:scale-105 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/30"
             >
               <i className="fas fa-download text-cyan-400 group-hover:text-cyan-300 transition-colors"></i>
