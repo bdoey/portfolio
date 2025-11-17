@@ -17,7 +17,7 @@ export const SKILLS: SkillGroup[] = [
     },
     {
         category: 'AI & ML Frameworks',
-        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'NumPy'}, {name: 'Pandas'}, , {name: 'Polars'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
+        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'NumPy'}, {name: 'Pandas'}, {name: 'Polars'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
     },
     {
         category: 'Generative & Agentic AI',
