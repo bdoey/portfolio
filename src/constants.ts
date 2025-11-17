@@ -17,11 +17,11 @@ export const SKILLS: SkillGroup[] = [
     },
     {
         category: 'AI & ML Frameworks',
-        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
+        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'NumPy'}, {name: 'Pandas'}, , {name: 'Polars'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
     },
     {
         category: 'Generative & Agentic AI',
-        skills: [{name: 'AutoGen'}, {name: 'PydanticAI'}, {name: 'CrewAI'}, {name: 'Hugging Face Transformers'}, {name: 'Unsloth'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
+        skills: [{name: 'AutoGen'}, {name: 'PydanticAI'}, {name: 'CrewAI'}, {name: 'Haystack'}, {name: 'Hugging Face Transformers'}, {name: 'Smolagents'}, {name: 'Unsloth'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
     },
     {
         category: 'MLOps & Business Intelligence',
