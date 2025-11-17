@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
                         <SocialLink href="https://www.linkedin.com/in/bdoey" icon="fa-linkedin" label="LinkedIn" delay={0.8} />
                         <SocialLink href="https://github.com/bdoey" icon="fa-github" label="GitHub" delay={0.9} />
                         <SocialLink href="https://www.facebook.com/bdoey" icon="fa-facebook-f" label="Facebook" delay={1.0} />
-                        <SocialLink href="https://twitter.com/bdoey" icon="fa-twitter" label="Twitter" delay={1.1} />
+                        <SocialLink href="https://x.com/bdoey" icon="fa-square-x-twitter" label="X" delay={1.1} />
                     </ul>
                 </motion.div>
             </motion.div>
