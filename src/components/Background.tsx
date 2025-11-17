@@ -22,7 +22,7 @@ const Background: React.FC = () => {
         className="fixed inset-0 -z-20 bg-zinc-950"
         style={{
           backgroundImage: `
-            radial-gradient(circle at center, rgba(148, 163, 184, 0.08) 1px, transparent 1px)
+            radial-gradient(circle at center, rgba(148, 163, 184, 0.12) 1px, transparent 1px)
           `,
           backgroundSize: '32px 32px',
         }}
