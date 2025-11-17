@@ -12,20 +12,20 @@ import { SkillGroup, Experience, Education, Project, Publication } from './types
 
 export const SKILLS: SkillGroup[] = [
     {
-        category: 'Languages',
-        skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}]
+        category: 'Languages & Modeling',
+        skills: [{name: 'Python'}, {name: 'R'}, {name: 'SQL'}, {name: 'JavaScript'}, {name: 'TypeScript'}, {name: 'Go'}, {name: 'Rust'}, {name: 'Solidity'}, {name: 'Supervised Learning'}, {name: 'Unsupervised Learning'}, {name: 'Deep Neural Networks'}, {name: 'Recurrent Neural Networks'}, {name: 'Retrieval-Augmented Generation'}, {name: 'Natural Language Processing'}, {name: 'Sentiment Analysis'}, {name: 'Quantitative Modeling'}]
     },
     {
-        category: 'AI / ML Frameworks',
-        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'NLP'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
+        category: 'AI & ML Frameworks',
+        skills: [{name: 'PyTorch'}, {name: 'TensorFlow'}, {name: 'Keras'}, {name: 'Scikit-learn'}, {name: 'XGBoost'}, {name: 'LightGBM'}, {name: 'CatBoost'}, {name: 'BERT'}, {name: 'SpaCy'}, {name: 'NeuralProphet'}, {name: 'Optuna'}, {name: 'MLX'}, {name: 'CUDA'}]
     },
     {
         category: 'Generative & Agentic AI',
-        skills: [{name: 'Unsloth'}, {name: 'PydanticAI)'}, {name: 'CrewAI)'}, {name: 'Hugging Face Transformers'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
+        skills: [{name: 'AutoGen'}, {name: 'PydanticAI'}, {name: 'CrewAI'}, {name: 'Hugging Face Transformers'}, {name: 'Unsloth'}, {name: 'Chroma'}, {name: 'Weaviate'}, {name: 'Ollama'}, {name: 'LM Studio'}, {name: 'vLLM'}, {name: 'LangChain'}]
     },
     {
         category: 'MLOps & Business Intelligence',
-        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'Apache Airflow'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
+        skills: [{name: 'Google Cloud Platform (GCP)'}, {name: 'VertexAI'}, {name: 'BigQuery'}, {name: 'Apache Airflow'}, {name: 'Kubernetes'}, {name: 'Docker'}, {name: 'ServiceNow'}, {name: 'Smartsheet'}, {name: 'Collibra'}, {name: 'Teradata'}, {name: 'MLflow'}, {name: 'WandB'}, {name: 'Jenkins CI/CD'}, {name: 'Looker Studio'}, {name: 'Qlik Sense'}, {name: 'Tableau'}]
     }
 ];
 
