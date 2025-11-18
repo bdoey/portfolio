@@ -25,6 +25,7 @@ const navItems = [
 
 const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 100], [0, 1]);
 
@@ -48,6 +49,9 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
         top: offsetPosition,
         behavior: 'smooth',
       });
+
+      // Close mobile menu after navigation
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -74,8 +78,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
             Brandon Doey
           </motion.button>
 
-          {/* Navigation Links */}
-          <ul className={`flex items-center space-x-1 ${isScrolled ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+          {/* Desktop Navigation Links - Hidden on Mobile */}
+          <ul className={`hidden md:flex items-center space-x-1 ${isScrolled ? 'pointer-events-auto' : 'pointer-events-none'}`}>
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
@@ -99,7 +103,61 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
               </li>
             ))}
           </ul>
+
+          {/* Mobile Menu Button - Visible on Mobile Only */}
+          <motion.button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`md:hidden p-2 rounded-lg text-white/80 hover:text-white hover:bg-cyan-600/10 transition-colors ${
+              isScrolled ? 'pointer-events-auto' : 'pointer-events-none'
+            }`}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle mobile menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isMobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </motion.button>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && isScrolled && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-t border-dark-700 py-2"
+          >
+            <ul className="space-y-1">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className={`w-full text-left px-4 py-3 text-sm font-medium transition-all duration-200 rounded-lg ${
+                      activeSection === item.id
+                        ? 'text-cyan-300 bg-cyan-600/10'
+                        : 'text-white/80 hover:text-white hover:bg-cyan-600/10'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
