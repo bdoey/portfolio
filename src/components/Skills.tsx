@@ -51,7 +51,7 @@ interface SkillBadgeProps {
     iconUrl?: string;
     description?: string;
     index: number;
-    onSelect: (skill: { name: string; description?: string } | null) => void;
+    onSelect: (skill: { name: string; description?: string; position: { x: number; y: number } } | null) => void;
     isSelected: boolean;
 }
 
@@ -65,7 +65,22 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, iconUrl, descriptio
     const handleClick = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (description) {
-            onSelect(isSelected ? null : { name, description });
+            if (isSelected) {
+                onSelect(null);
+            } else {
+                // Get the position of the clicked badge
+                const rect = badgeRef.current?.getBoundingClientRect();
+                if (rect) {
+                    onSelect({
+                        name,
+                        description,
+                        position: {
+                            x: rect.left + rect.width / 2,
+                            y: rect.bottom
+                        }
+                    });
+                }
+            }
         }
     };
 
@@ -113,10 +128,11 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, iconUrl, descriptio
 
 // Popup component for skill descriptions
 const SkillPopup: React.FC<{
-    skill: { name: string; description?: string } | null;
+    skill: { name: string; description?: string; position: { x: number; y: number } } | null;
     onClose: () => void;
 }> = ({ skill, onClose }) => {
     const popupRef = useRef<HTMLDivElement>(null);
+    const [adjustedPosition, setAdjustedPosition] = useState<{ left: number; top: number } | null>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -142,6 +158,37 @@ const SkillPopup: React.FC<{
         };
     }, [skill, onClose]);
 
+    // Calculate adjusted position to keep popup on screen
+    useEffect(() => {
+        if (skill && popupRef.current) {
+            const popup = popupRef.current;
+            const popupRect = popup.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const padding = 16;
+
+            let left = skill.position.x - popupRect.width / 2;
+            let top = skill.position.y + 8;
+
+            // Adjust horizontal position if popup goes off screen
+            if (left < padding) {
+                left = padding;
+            } else if (left + popupRect.width > viewportWidth - padding) {
+                left = viewportWidth - popupRect.width - padding;
+            }
+
+            // Adjust vertical position if popup goes off screen bottom
+            if (top + popupRect.height > viewportHeight - padding) {
+                // Show above the skill instead
+                top = skill.position.y - popupRect.height - 40;
+            }
+
+            setAdjustedPosition({ left, top });
+        } else {
+            setAdjustedPosition(null);
+        }
+    }, [skill]);
+
     return (
         <AnimatePresence>
             {skill && skill.description && (
@@ -151,7 +198,11 @@ const SkillPopup: React.FC<{
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute z-50 mt-2 left-0 right-0 mx-auto max-w-md"
+                    className="fixed z-[9999] w-80 max-w-[calc(100vw-32px)]"
+                    style={{
+                        left: adjustedPosition?.left ?? skill.position.x - 160,
+                        top: adjustedPosition?.top ?? skill.position.y + 8,
+                    }}
                 >
                     <div className="bg-dark-800/95 backdrop-blur-sm border border-cyan-500/30 rounded-lg shadow-lg shadow-cyan-500/10 p-4">
                         <div className="flex items-center justify-between mb-2">
@@ -179,12 +230,12 @@ const SkillCategoryCard: React.FC<{ group: SkillGroup; groupIndex: number }> = (
         triggerOnce: true,
         threshold: 0.1,
     });
-    const [selectedSkill, setSelectedSkill] = useState<{ name: string; description?: string } | null>(null);
+    const [selectedSkill, setSelectedSkill] = useState<{ name: string; description?: string; position: { x: number; y: number } } | null>(null);
 
     const colors = categoryColors[group.category];
     const icon = categoryIcons[group.category];
 
-    const handleSkillSelect = (skill: { name: string; description?: string } | null) => {
+    const handleSkillSelect = (skill: { name: string; description?: string; position: { x: number; y: number } } | null) => {
         setSelectedSkill(skill);
     };
 
