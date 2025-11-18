@@ -7,8 +7,8 @@
  * entrance effects for each skill badge with enhanced visual card design.
  */
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { SKILLS } from '../constants';
 import { SkillGroup, SkillCategory } from '../types';
@@ -45,34 +45,132 @@ const categoryColors: Record<SkillCategory, { border: string; glow: string; icon
     }
 };
 
-const SkillBadge: React.FC<{ name: string; icon?: string; iconUrl?: string; index: number }> = ({ name, icon, iconUrl, index }) => {
+interface SkillBadgeProps {
+    name: string;
+    icon?: string;
+    iconUrl?: string;
+    description?: string;
+    index: number;
+    onSelect: (skill: { name: string; description?: string } | null) => void;
+    isSelected: boolean;
+}
+
+const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, iconUrl, description, index, onSelect, isSelected }) => {
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
+    const badgeRef = useRef<HTMLSpanElement>(null);
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (description) {
+            onSelect(isSelected ? null : { name, description });
+        }
+    };
 
     return (
-        <motion.span
-            ref={ref}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.0001, delay: index * 0.00001 }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            className="bg-dark-800/90 text-slate-200 text-sm font-medium px-3 py-2 rounded-full border border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20 transition-all cursor-default inline-flex items-center gap-2"
-        >
-            {icon && (
-                <i className={`${icon} text-cyan-400`} style={{ fontSize: '1rem' }}></i>
+        <div className="relative">
+            <motion.span
+                ref={(node) => {
+                    // Combine refs
+                    if (node) {
+                        (badgeRef as React.MutableRefObject<HTMLSpanElement | null>).current = node;
+                    }
+                    if (typeof ref === 'function') {
+                        ref(node);
+                    }
+                }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                transition={{ duration: 0.0001, delay: index * 0.00001 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                onClick={handleClick}
+                className={`bg-dark-800/90 text-slate-200 text-sm font-medium px-3 py-2 rounded-full border transition-all inline-flex items-center gap-2 ${
+                    description ? 'cursor-pointer' : 'cursor-default'
+                } ${
+                    isSelected
+                        ? 'border-cyan-500 shadow-md shadow-cyan-500/30'
+                        : 'border-dark-600 hover:border-cyan-500/50 hover:shadow-sm hover:shadow-cyan-500/20'
+                }`}
+            >
+                {icon && (
+                    <i className={`${icon} text-cyan-400`} style={{ fontSize: '1rem' }}></i>
+                )}
+                {!icon && iconUrl && (
+                    <img
+                        src={iconUrl}
+                        alt={`${name} icon`}
+                        className="w-4 h-4 object-contain"
+                        style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(40%) saturate(697%) hue-rotate(154deg) brightness(95%) contrast(93%)' }}
+                    />
+                )}
+                {name}
+            </motion.span>
+        </div>
+    );
+};
+
+// Popup component for skill descriptions
+const SkillPopup: React.FC<{
+    skill: { name: string; description?: string } | null;
+    onClose: () => void;
+}> = ({ skill, onClose }) => {
+    const popupRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+                onClose();
+            }
+        };
+
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                onClose();
+            }
+        };
+
+        if (skill) {
+            document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [skill, onClose]);
+
+    return (
+        <AnimatePresence>
+            {skill && skill.description && (
+                <motion.div
+                    ref={popupRef}
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute z-50 mt-2 left-0 right-0 mx-auto max-w-md"
+                >
+                    <div className="bg-dark-800/95 backdrop-blur-sm border border-cyan-500/30 rounded-lg shadow-lg shadow-cyan-500/10 p-4">
+                        <div className="flex items-center justify-between mb-2">
+                            <h5 className="font-semibold text-cyan-400 text-sm">{skill.name}</h5>
+                            <button
+                                onClick={onClose}
+                                className="text-slate-400 hover:text-slate-200 transition-colors"
+                                aria-label="Close"
+                            >
+                                <i className="fas fa-times text-xs"></i>
+                            </button>
+                        </div>
+                        <p className="text-slate-300 text-xs leading-relaxed">
+                            {skill.description}
+                        </p>
+                    </div>
+                </motion.div>
             )}
-            {!icon && iconUrl && (
-                <img
-                    src={iconUrl}
-                    alt={`${name} icon`}
-                    className="w-4 h-4 object-contain"
-                    style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(40%) saturate(697%) hue-rotate(154deg) brightness(95%) contrast(93%)' }}
-                />
-            )}
-            {name}
-        </motion.span>
+        </AnimatePresence>
     );
 };
 
@@ -81,9 +179,14 @@ const SkillCategoryCard: React.FC<{ group: SkillGroup; groupIndex: number }> = (
         triggerOnce: true,
         threshold: 0.1,
     });
+    const [selectedSkill, setSelectedSkill] = useState<{ name: string; description?: string } | null>(null);
 
     const colors = categoryColors[group.category];
     const icon = categoryIcons[group.category];
+
+    const handleSkillSelect = (skill: { name: string; description?: string } | null) => {
+        setSelectedSkill(skill);
+    };
 
     return (
         <motion.div
@@ -91,7 +194,7 @@ const SkillCategoryCard: React.FC<{ group: SkillGroup; groupIndex: number }> = (
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.005, delay: groupIndex * 0.001 }}
-            className={`relative card card-hover ${colors.border} ${colors.glow} p-6 overflow-hidden group`}
+            className={`relative card card-hover ${colors.border} ${colors.glow} p-6 overflow-visible group`}
         >
             {/* Gradient accent bar */}
             <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-${colors.icon.split('-')[1]}-500 to-transparent opacity-50`}></div>
@@ -122,17 +225,23 @@ const SkillCategoryCard: React.FC<{ group: SkillGroup; groupIndex: number }> = (
             </div>
 
             {/* Skills grid */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 relative">
                 {group.skills.map((skill, index) => (
                     <SkillBadge
                         key={skill.name}
                         name={skill.name}
                         icon={skill.icon}
                         iconUrl={skill.iconUrl}
+                        description={skill.description}
                         index={index}
+                        onSelect={handleSkillSelect}
+                        isSelected={selectedSkill?.name === skill.name}
                     />
                 ))}
             </div>
+
+            {/* Skill description popup */}
+            <SkillPopup skill={selectedSkill} onClose={() => setSelectedSkill(null)} />
 
             {/* Hover effect overlay */}
             <div className={`absolute inset-0 bg-gradient-to-br from-${colors.icon.split('-')[1]}-500/0 to-${colors.icon.split('-')[1]}-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>

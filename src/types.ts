@@ -13,6 +13,7 @@ export interface Skill {
   name: string;
   icon?: string;     // Font Awesome icon class (e.g., 'fab fa-python')
   iconUrl?: string;  // URL to image file (png, jpeg, etc.) - used if icon is not provided
+  description?: string;  // Long description shown when skill is clicked
 }
 
 export interface SkillGroup {
